@@ -1,0 +1,11 @@
+# root
+.env
+.vercel
+.vscode
+.venv
+server.js
+node_modules
+convert-img.js
+readme.md
+middleware
+public
