@@ -1,0 +1,638 @@
+/* Compact Edit-Akun modal + yellow inputs (replace previous modal CSS) */
+:root{
+  --panel-bg: #111;
+  --panel-fg: #e6edf5;
+  --muted: #c1c2c4;
+  --input-bg: transparent;       /* <- yellow input background */
+  --input-border: #c9b94a;   /* darker yellow-ish border */
+  --accent: #00b342;
+  --accent-hover: #008b33;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --radius: 10px;
+}
+
+/* Modal shell (lebih compact) */
+#edit-akun-modal {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--panel-fg);
+  background: var(--panel-bg);
+  border-radius: 10px;
+  padding: 12px;               /* lebih kecil */
+  width: 720px;
+  max-width: 96%;
+  max-height: 80vh;            /* batasi tinggi modal */
+  overflow: auto;              /* scroll jika konten panjang */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+#edit-akun-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+#edit-akun-modal::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 5px;
+}
+
+/* Header row */
+#edit-akun-modal > div:first-child {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
+#edit-akun-modal strong {
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+/* Close button (kompak) */
+#edit-akun-modal button#close-edit-modal {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding:6px;
+  border-radius:8px;
+}
+#edit-akun-modal button#close-edit-modal:hover { color: #fff; background: rgba(255,255,255,0.03); }
+
+/* Compact grid: lebih rapat */
+#edit-akun-panel.panel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;                  /* lebih kecil */
+  align-items: start;
+  font-size: 0.93rem;
+}
+
+/* Form group compact */
+#edit-akun-panel label {
+  display:block;
+  font-size:0.78rem;
+  color:var(--muted);
+  margin-bottom:4px;         /* lebih kecil */
+  font-weight:600;
+}
+#edit-akun-panel input[type="text"],
+#edit-akun-panel textarea,
+#edit-akun-panel select {
+  width:100%;
+  box-sizing:border-box;
+  background: var(--input-bg);      /* kuning */
+  color: #ffffff;                   /* teks gelap agar kontras di kuning */
+  border: 1px solid var(--input-border);
+  padding: 6px 8px;                 /* lebih padat */
+  border-radius: 6px;
+  font-size:0.92rem;
+  transition: box-shadow .12s ease, border-color .12s ease;
+  outline: none;
+}
+
+#edit-akun-panel select { 
+  cursor: pointer; 
+  background: var(--panel-bg);
+}
+
+/* placeholder lebih samar */
+#edit-akun-panel input::placeholder,
+#edit-akun-panel textarea::placeholder { color: rgba(26,26,26,0.35); }
+
+/* textarea lebih pendek */
+#edit-akun-panel textarea {
+  min-height: 60px;         /* dikurangi dari 80 */
+  resize: vertical;
+}
+
+/* fokus input */
+#edit-akun-panel input:focus,
+#edit-akun-panel textarea:focus,
+#edit-akun-panel select:focus {
+  border-color: rgba(255, 193, 7, 0.95);  /* kuning-gold focus */
+  box-shadow: 0 6px 18px rgba(255,193,7,0.06);
+}
+
+/* full width row helper */
+#edit-akun-panel > .full-row { grid-column: 1 / -1; }
+
+/* status select sedikit lebih kecil */
+#edit-akun-panel select[data-bind="status"] {
+  max-width: 180px;
+}
+
+/* Update button compact style */
+#edit-akun-modal #btn-update-panel {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: .46rem .78rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(6,182,212,0.10);
+}
+
+#edit-akun-modal #btn-update-panel:hover {
+  background: var(--accent-hover);
+}
+
+#edit-akun-modal #btn-update-panel:disabled { opacity: .6; cursor: not-allowed; }
+
+/* generic small buttons */
+#edit-akun-modal .btn-action {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--panel-fg);
+  padding: .35rem .6rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+/* Responsif: 1 kolom pada layar kecil */
+@media (max-width: 760px) {
+  #edit-akun-panel.panel { grid-template-columns: 1fr; gap: 10px; }
+  #edit-akun-modal { padding: 12px; }
+}
+
+/* Confirm dialog: samakan tema dan jangan terlalu tinggi */
+.confirm-dialog {
+  background: var(--panel-bg) !important;
+  color: var(--panel-fg) !important;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  max-width: 420px;
+}
+.confirm-dialog .confirm-ok {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  padding: .4rem .7rem;
+  border-radius:8px;
+  cursor:pointer;
+}
+.confirm-dialog .confirm-cancel {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: .38rem .6rem;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* focus outlines kecil untuk aksesibilitas */
+#edit-akun-modal input:focus, #edit-akun-modal textarea:focus, .confirm-dialog button:focus {
+  outline: 3px solid rgba(255,193,7,0.12);
+  outline-offset: 2px;
+}
+
+.hdr-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    width: 300px;
+    height: 100vh;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background: #242424;
+    transition: 0.3s ease-in;
+    transform: translateX(-100%); /* posisi awal tertutup */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-admin-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sidebar-admin-header .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 2px solid #fbff00;
+    cursor: pointer;
+}
+
+.sidebar-admin-header p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.btn-close {
+    position: absolute;
+    right: 0;
+}
+
+.sidebar-btn {
+    position: relative;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: transparent;
+    text-align: left;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-btn:hover {
+    background: #444;
+}
+
+.sidebar-btn i { 
+    position: absolute;
+    right: 1rem;
+}
+
+.logout-btn {
+    position: absolute;
+    width: 267px;
+    bottom: 1rem;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #ff0000;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    place-items: center;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
+
+.logout-btn i {
+    position: absolute;
+    right: 1rem;
+}
+
+.admin-container-search {
+    position: fixed;
+    top: 5rem;
+    width: 50%;
+    height: 350px;
+    background: #242424;
+    border-radius: 0.5rem;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    transform: scale(0); /* posisi awal tertutup */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: top center;
+}
+
+#panel-form,
+#panel-index,
+#panel-detail,
+#gambar-detail {
+    margin-top: 5rem;
+    width: 100%;
+    height: auto;
+    padding: 1rem 5%;
+}
+
+.panel-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.panel-section.active {
+  display: block;
+  opacity: 1;
+}
+
+.panel-section h1 {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+
+}
+
+#form-akun {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    height: max-content;
+}
+
+#form-akun input,
+#form-akun select {
+    width: 32%;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #444;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+#form-akun input:focus {
+    border-color: #fbff00;
+}
+
+#form-akun select:focus {
+    border-color: #fbff00;
+}
+
+#form-akun select option {
+    background: #242424;
+    color: #fff;
+}
+
+#form-akun button {
+    width: 45%;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #fbff00;
+    outline: none;
+    background: transparent;
+    color: #fbff00;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#form-akun button:hover {
+    background: #fbff00;
+    color: #242424;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  background: #2a2a2a;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+/* Header */
+table thead {
+  background: linear-gradient(135deg, #3a3a3a, #1e1e1e);
+}
+
+table thead th {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fbff00;
+  border-bottom: 2px solid #333;
+  letter-spacing: 0.5px;
+}
+
+/* Body */
+table tbody tr {
+  transition: background 0.25s ease;
+}
+
+table tbody tr:nth-child(even) {
+  background: #242424;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #2f2f2f;
+}
+
+table tbody tr:hover {
+  background: #3b3b3b;
+}
+
+table tbody td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+  color: #f5f5f5;
+  vertical-align: middle;
+  text-align: left;
+}
+
+/* Gambar dalam kolom */
+table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0.35rem;
+  border: 1px solid #555;
+}
+
+/* Aksi */
+table td button {
+  padding: 0.4rem 0.7rem;
+  margin: 0 0.2rem;
+  border: none;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+/* contoh dua style tombol */
+table td button.edit {
+  background: var(--accent);
+  color: white;
+}
+table td button.edit:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+table td button.delete {
+  background: #dc2626;
+  color: white;
+}
+table td button.delete:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* gambar grid di panel-gambar */
+.gambar-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  align-items:flex-start;
+}
+
+/* kotak gambar 4x4rem (64px) */
+.gambar-box {
+  width: 50px;
+  height: 50px;
+  position:relative;
+  border-radius:6px;
+  overflow:hidden;
+  background:#1e1e1e;
+  display:inline-grid;
+  place-items:center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  cursor:grab;
+}
+
+.gambar-box.dragging {
+  opacity: 0.6;
+  transform: scale(1.03);
+}
+
+.gambar-box img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* tombol kecil untuk hapus (top-left) */
+.gambar-box .img-remove {
+  position:absolute;
+  top: 2px;
+  left: -1px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background: rgba(255,0,0,0.95);
+  color:white;
+  border:none;
+  font-weight:700;
+  line-height:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:10;
+  font-size:12px;
+}
+
+/* gaya tombol upload kecil */
+.btn-action {
+  padding: 0.35rem 0.6rem;
+  border-radius:6px;
+  border:none;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+.btn-action.delete { background: #dc2626; }
+.btn-action.edit { background: var(--accent); }
+
+/* responsive: kalau sempit, scroll horizontally di tabel gambar cell */
+.gambar-grid {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.status-select {
+  padding: .25rem .4rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #111;
+  color: #fff;
+  font-size: .9rem;
+}
+
+/* Toast / popup kanan atas */
+.toast-wrap {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+  pointer-events: none; /* agar elemen di belakang tetap klikable */
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 220px;
+  max-width: 380px;
+  background: rgba(36,36,36,0.98);
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  border: 1px solid #2b2b2b;
+  transform-origin: top right;
+  opacity: 0;
+  transform: translateY(-8px) scale(.99);
+  transition: opacity .28s ease, transform .28s cubic-bezier(.2,.9,.2,1);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* types */
+.toast.success { border-left: 4px solid #16a34a; }
+.toast.error   { border-left: 4px solid #dc2626; }
+.toast.info    { border-left: 4px solid #2563eb; }
+
+.toast .icon {
+  width: 1.4rem;
+  text-align: center;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.toast .msg { flex: 1; line-height: 1.1; color: #f5f5f5; }
+
+.toast .close {
+  margin-left: 0.4rem;
+  cursor: pointer;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* responsive: kecilkan lebar di layar sempit */
+@media (max-width: 480px) {
+  .toast { right: .75rem; left: .75rem; min-width: auto; max-width: unset; width: auto; }
+  .toast-wrap { right: .5rem; left: .5rem; top: 0.8rem; align-items: stretch; }
+}

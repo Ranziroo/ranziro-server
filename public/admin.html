@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ranziro Store" />
+<meta property="og:description" content="Jual beli akun Mobile Legends. Cek koleksi dan harga terbaik." />
+<meta property="og:image" content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
+<meta property="og:url" content="https://yourdomain.com/ml" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
+<link rel="image_src" href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
+
+  <link rel="icon" href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" type="image/webp" width="32" height="32">
+
+  <title>Admin Panel | RanziroStore</title>
+  <!-- link css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="assets/loader.css">
+
+    <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/b0ce53bf51.js" crossorigin="anonymous"></script>
+
+    <!-- Link Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chau+Philomene+One:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <!-- header -->
+  <header>
+    <div>
+      <button class="btn-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      
+      <img src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp" alt="" class="logo">
+    </div>
+
+    <button class="btn-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <!-- Input Search -->
+      <input type="text" id="input-search" class="input-search" placeholder="Cari data..." autocomplete="new-password" />
+
+    </button>
+
+  </header>
+
+  <main>
+    <section id="panel-form" class="panel-section">
+        <!-- Container -->
+        <h1 class="">Admin Panel — Form Input Akun</h1>
+
+            <!-- Form Input Akun -->
+<form id="form-akun" class="">
+  <input type="text" id="nama" name="nama" placeholder="Nama Akun">
+  <input type="number" id="harga" name="harga" placeholder="Harga">
+
+  <!-- gunakan snake_case supaya cocok dengan server -->
+  <input type="number" id="id-akun" name="id_akun" placeholder="ID Akun">
+
+  <input type="text" id="deskripsi" name="deskripsi" placeholder="Deskripsi">
+  <input type="text" id="rank-tertinggi" name="rank" placeholder="Rank Tertinggi">
+  <input type="number" id="skin" name="skin" placeholder="Jumlah Skin">
+  <input type="number" id="hero" name="hero" placeholder="Jumlah Hero">
+  <input type="text" id="win-rate" name="winrate" placeholder="Win Rate">
+  <input type="number" id="pertandingan" name="pertandingan" placeholder="Total Pertandingan">
+
+  <!-- ubah name magic-core -> magic_core -->
+  <input type="text" id="magic-core" name="magic_core" placeholder="Magic Core">
+
+  <input type="text" id="emblem" name="emblem" placeholder="Emblem">
+
+  <!-- ubah pribadi-beli -> pribadi_beli -->
+  <input type="text" id="pribadi-beli" name="pribadi_beli" placeholder="Pribadi/Beli">
+
+  <input type="text" id="log" name="log" placeholder="Log">
+  <input type="text" id="bind" name="bind" placeholder="Bind">
+  <select id="status" name="status">
+  <option value="available" selected>Available</option>
+  <option value="sold">Sold</option>
+</select>
+  <!-- multiple files -->
+  <input type="file" id="gambar" name="gambar" accept="image/*" multiple>
+
+  <button type="submit">Tambah Akun</button>
+</form>
+
+    </section>
+
+    <section id="panel-index" class="panel-section">
+        <!-- Container -->
+    <h1 class="">Admin Panel — Akun Index</h1>
+
+<table class="">
+  <thead>
+    <tr>
+      <th class="">ID</th>
+      <th class="">Nama</th>
+      <th class="">Harga</th>
+      <th class="">Gambar</th>  
+      <th class="">Status</th>
+      <th class="">Aksi</th>
+    </tr>
+  </thead>
+  <tbody id="akun-body"></tbody>
+</table>
+    </section>
+
+<section id="panel-detail" class="panel-section">
+  <h1>Admin Panel — Akun Detail</h1>
+
+  <!-- Tabel 1: Data Utama -->
+  <table class="table-detail">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Harga</th>
+        <th>ID Akun</th>
+        <th>Deskripsi</th>
+        <th>Rank</th>
+        <th>Skin</th>
+        <th>Hero</th>
+      </tr>
+    </thead>
+    <tbody id="akun-detail-body-utama"></tbody>
+  </table>
+  
+  <!-- Tabel 2: Data Tambahan -->
+  <table class="table-detail">
+    <thead>
+      <tr>
+        <th>Win Rate</th>
+        <th>Pertandingan</th>
+        <th>Magic Core</th>
+        <th>Emblem</th>
+        <th>Pribadi/Beli</th>
+        <th>Log</th>
+        <th>Bind</th>
+        <th>Status</th>
+        <th>Gambar</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="akun-detail-body-tambahan"></tbody>
+  </table>
+</section>
+
+<section id="gambar-detail" class="panel-section">
+  <h1>Admin Panel — Gambar Detail</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama Akun</th>
+        <th>Gambar</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="gambar-body"></tbody>
+  </table>
+</section>
+
+  </main>
+
+  <!-- container-search -->
+   <div class="admin-container-search">
+
+   </div>
+
+   <!-- sidebar admin -->
+        <div class="sidebar-admin">
+      <div class="sidebar-admin-header">
+        <a href="/admin">
+          <img loading="lazy" src="logo/meta_ranziro.webp" alt="ranziro_store" class="logo" />
+        </a>
+        <p>Dashboard</p>
+        <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <button class="sidebar-btn">
+        Form Input Akun
+        <i class="fa-solid fa-user-plus"></i>
+      </button>
+
+      <button class="sidebar-btn">
+        Panel Akun - Index
+        <i class="fa-solid fa-table"></i>
+      </button>
+      
+      <button class="sidebar-btn">
+        Panel Akun - Detail
+        <i class="fa-solid fa-table-list"></i>
+      </button>
+
+
+      <button class="sidebar-btn">
+        Panel Gambar - Detail
+        <i class="fa-solid fa-images"></i>
+      </button>
+
+      <button class="logout-btn">
+        Logout
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+
+
+  <script src="js/admin.js"></script>
+  <script src="assets/loader.js"></script>
+</body>
+</html>

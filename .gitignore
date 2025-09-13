@@ -4,8 +4,9 @@
 .vscode
 .venv
 server.js
+routes/route.js
+public/img-webp
 node_modules
 convert-img.js
 readme.md
 middleware
-public
