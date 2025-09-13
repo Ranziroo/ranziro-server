@@ -4,6 +4,7 @@
 .vscode
 .venv
 server.js
+routes
 routes/route.js
 public/img-webp
 public/logo
