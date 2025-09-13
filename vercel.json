@@ -1,20 +1,18 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "sernverwe3.min.js.js",
-      "use": "@vercel/node"
-    }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://ranziro-server-production.up.railway.app/api/:path*" },
+    { "source": "/login", "destination": "https://ranziro-server-production.up.railway.app/login" },
+    { "source": "/admin", "destination": "https://ranziro-server-production.up.railway.app/admin" },
+    { "source": "/akun", "destination": "https://ranziro-server-production.up.railway.app/akun" },
+    { "source": "/ml", "destination": "https://ranziro-server-production.up.railway.app/ml" }
   ],
-
-  "routes": [
+  "headers": [
     {
-      "src": "/(.*)",
-      "dest": "sernverwe3.min.js.js",
-      "headers": {
-        "key": "Cache-Control",
-        "value": "no-store"
-      }
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
     }
   ]
 }
