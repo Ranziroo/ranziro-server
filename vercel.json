@@ -1,20 +1,19 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "sernverwe3.min.js.js",
-      "use": "@vercel/node"
-    }
-  ],
-
   "routes": [
+    { "src": "/login", "dest": "/api/proxy" },
+    { "src": "/admin", "dest": "/api/proxy" },
+    { "src": "/akun", "dest": "/api/proxy" },
+    { "src": "/ml", "dest": "/api/proxy" },
+    { "src": "/api/(.*)", "dest": "/api/proxy" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
     {
-      "src": "/(.*)",
-      "dest": "sernverwe3.min.js.js",
-      "headers": {
-        "key": "Cache-Control",
-        "value": "no-store"
-      }
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
     }
   ]
 }
