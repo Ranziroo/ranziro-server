@@ -42,7 +42,7 @@
       <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <a href="https://ranziro-server-production.up.railway.app/ml" class="sidebar-links">
+    <a href="ranzirostore.vercel.app/ml" class="sidebar-links">
       <p>Mobile Legends</p>
       <i class="fa-solid fa-gamepad"></i>
     </a>
@@ -146,7 +146,7 @@
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
 <template x-if="!typing">
   <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
-    <a :href="`https://ranziro-server-production.up.railway.app/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+    <a :href="`ranzirostore.vercel.app/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
       class="search-links">
       <div class="search-thumb">
         <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
@@ -246,7 +246,7 @@
 
       <div class="container-list-3">
         <template x-for="game in visibleData" :key="game.namaAkun">
-          <a :href="`https://ranziro-server-production.up.railway.app/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=main_list&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+          <a :href="`ranzirostore.vercel.app/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=main_list&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
             class="card-parents" x-transition:enter="fade-up-enter" x-transition:enter-start="fade-up-enter-start"
             x-transition:enter-end="fade-up-enter-end" x-transition:leave="fade-up-leave"
             x-transition:leave-start="fade-up-leave-start" x-transition:leave-end="fade-up-leave-end" x-cloak
@@ -300,7 +300,7 @@
           <div class="footer-title">Peta Situs</div>
           <div class="footer-hr"></div>
           <div class="footer-list">
-            <a href="https://ranziro-server-production.up.railway.app/ml" class="footer-links">Mobile Legends</a>
+            <a href="ranzirostore.vercel.app/ml" class="footer-links">Mobile Legends</a>
           </div>
         </div>
 
