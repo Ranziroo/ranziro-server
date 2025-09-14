@@ -17,7 +17,7 @@ if (!global.__EXPRESS_APP__) {
   app.use(express.urlencoded({ extended: true }));
 
   // static assets: kalau Anda ada folder 'public', pastikan pathnya benar
-  app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'routes')));
 
   // expose ke global
   global.expressApp = app;
