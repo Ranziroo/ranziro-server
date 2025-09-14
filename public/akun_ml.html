@@ -33,7 +33,7 @@
       <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <a href="/mobile-legends" class="sidebar-links">
+    <a href="index.html" class="sidebar-links">
       <p>Mobile Legends</p>
       <i class="fa-solid fa-gamepad"></i>
     </a>
@@ -138,7 +138,7 @@
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
 <template x-if="!typing">
   <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
-    <a :href="/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+    <a :href="akun.html?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
       class="search-links">
       <div class="search-thumb">
         <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
@@ -307,7 +307,7 @@
           <div class="footer-title">Peta Situs</div>
           <div class="footer-hr"></div>
           <div class="footer-list">
-            <a href="/mobile-legends" class="footer-links">Mobile Legends</a>
+            <a href="index.html" class="footer-links">Mobile Legends</a>
           </div>
         </div>
 
@@ -367,10 +367,10 @@
   </main>
 
   <!-- js -->
-  <script src="../js/akun.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/global.js"></script>
-  <script src="../assets/loader.js"></script>
+  <script src="js/akun.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/global.js"></script>
+  <script src="assets/loader.js"></script>
 </body>
 
 </html>

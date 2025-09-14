@@ -8,18 +8,18 @@
     try {
 const r = await fetch('https://ranziro-server-production.up.railway.app/api/check-session', { method: 'GET', credentials: 'include' });      if (!r.ok) {
         // redirect to login route
-        window.location.href = '/login';
+        window.location.href = 'login.html';
         return false;
       }
       const j = await r.json().catch(()=>({success:false}));
       if (!j || !j.success) {
-        window.location.href = '/login';
+        window.location.href = 'login.html';
         return false;
       }
       return true;
     } catch (e) {
       console.error('Session check failed:', e);
-      window.location.href = '/login';
+      window.location.href = 'login.html';
       return false;
     }
   }
@@ -30,7 +30,7 @@ await fetch('https://ranziro-server-production.up.railway.app/api/logout', { met
       console.error('Logout request failed:', e);
     } finally {
       // Always redirect to login after attempting logout
-      window.location.href = '/login';
+      window.location.href = 'login.html';
     }
   }
 
