@@ -69,7 +69,7 @@ const supabase = createClient(process.env.SUPABASE_URL || '', process.env.SUPABA
  * Note: we skip '/akun' here because /akun has a custom meta-injection handler below.
  */
 const pages = [
-  { path: '/ml', file: 'index.html' },
+  { path: '/mobile-legends', file: 'index.html' },
   { path: '/akun', file: 'akun_ml.html' }, // kept for clarity but /akun handled separately
   { path: '/admin', file: 'admin.html' },
   { path: '/login', file: 'login.html' },
