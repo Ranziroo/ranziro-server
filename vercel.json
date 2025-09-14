@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
-  ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" }
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/login", "dest": "/login.html" },
+    { "src": "/admin", "dest": "/admin.html" },
+    { "src": "/akun", "dest": "/akun_ml.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ],
   "headers": [
     {
