@@ -1,28 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "api/entry.js",
-      "use": "@vercel/node"
-    }
+    { "src": "api/entry.js", "use": "@vercel/node" }
   ],
-  
-  "rewrites": [
-    { "source": "/akun", "destination": "https://ranziro-server-production.up.railway.app/akun" },
-    { "source": "/akun/:match*", "destination": "https://ranziro-server-production.up.railway.app/akun/:match*" },
-
-    { "source": "/mobile-legends", "destination": "https://ranziro-server-production.up.railway.app/mobile-legends" },
-    { "source": "/mobile-legends/:match*", "destination": "https://ranziro-server-production.up.railway.app/mobile-legends/:match*" },
-
-    { "source": "/admin", "destination": "https://ranziro-server-production.up.railway.app/admin" },
-    { "source": "/admin/:match*", "destination": "https://ranziro-server-production.up.railway.app/admin/:match*" },
-
-    { "source": "/login", "destination": "https://ranziro-server-production.up.railway.app/login" },
-    { "source": "/login/:match*", "destination": "https://ranziro-server-production.up.railway.app/login/:match*" },
-
-    { "source": "/api/:path*", "destination": "https://ranziro-server-production.up.railway.app/api/:path*" }
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/entry.js" }
   ],
-
   "headers": [
     {
       "source": "/(.*)",
@@ -32,4 +15,3 @@
     }
   ]
 }
-

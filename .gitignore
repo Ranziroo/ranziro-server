@@ -3,8 +3,6 @@
 .vercel
 .vscode
 .venv
-routes
-routes/route.js
 public/img-webp
 public/logo
 node_modules
