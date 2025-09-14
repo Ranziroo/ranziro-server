@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "sernverwe3.min.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "sernverwe3.min.js",
+      "dest": "server.js",
       "headers": {
         "key": "Cache-Control",
         "value": "no-store"
