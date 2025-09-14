@@ -13,6 +13,9 @@ const fs = require('fs');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 
+// trust proxy
+apps.set('trust proxy', true);
+
 // ------------ safety: pastikan folder uploads ada ------------
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {

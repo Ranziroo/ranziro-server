@@ -1,36 +1,43 @@
 // api/entry.js
-const express = require('express');
-const path = require('path');
+const { URL } = require('url');
+const http = require('http');
+const https = require('https');
 
-if (!global.__EXPRESS_APP__) {
-  const app = express();
+const BACKEND = process.env.RAILWAY_BACKEND_URL;
 
-  // middleware
-  app.use(express.json({ limit: '10mb' }));
-  app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-  // serve static assets dari folder public (root/public)
-  app.use(express.static(path.join(__dirname, '..', 'public')));
-
-  // expose app supaya routes self-registering dapat menemukan app
-  global.expressApp = app;
-  global.__EXPRESS_APP__ = app;
-
-  // REQUIRE routes file yang berada di routes/route.js (tanpa export)
-  try {
-    require(path.join(__dirname, '..', 'routes', 'route.js'));
-    console.log('routes/route.js loaded');
-  } catch (e) {
-    console.warn('Failed to load routes/route.js:', e && e.message ? e.message : e);
-  }
-}
-
-// Vercel handler: forward ke express instance
 module.exports = (req, res) => {
-  const app = global.__EXPRESS_APP__;
-  if (!app) {
+  if (!BACKEND) {
     res.statusCode = 500;
-    return res.end('Express not initialized');
+    return res.end('RAILWAY_BACKEND_URL not configured');
   }
-  return app(req, res);
+
+  try {
+    const backendUrl = new URL(req.url, BACKEND);
+    const lib = backendUrl.protocol === 'https:' ? https : http;
+
+    const headers = { ...req.headers };
+    delete headers.host;
+
+    const options = {
+      method: req.method,
+      headers
+    };
+
+    const proxyReq = lib.request(backendUrl, options, proxyRes => {
+      res.writeHead(proxyRes.statusCode, proxyRes.headers);
+      proxyRes.pipe(res, { end: true });
+    });
+
+    proxyReq.on('error', err => {
+      console.error('proxy error', err);
+      if (!res.headersSent) res.writeHead(502);
+      res.end('Bad Gateway');
+    });
+
+    req.pipe(proxyReq);
+  } catch (err) {
+    console.error('proxy handler error', err);
+    res.statusCode = 500;
+    res.end('Internal server error');
+  }
 };
