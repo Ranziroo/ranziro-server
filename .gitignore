@@ -7,10 +7,6 @@ routes
 routes/route.js
 public/img-webp
 public/logo
-public/js/app.js
-public/js/akun.js
-public/js/global.js
-public/assets/loader.js
 node_modules
 convert-img.js
 readme.md
