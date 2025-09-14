@@ -630,6 +630,40 @@ apps.delete('/api/del_ranzirostore_akunml/:id', async (req, res) => {
   }
 });
 
+// setelah semua middleware dan sebelum apps.listen(...)
+apps.set('trust proxy', 1); // penting saat server berjalan di Railway / Vercel reverse-proxy
+
+// map route -> file di public/
+const spaRoutes = {
+  '/ml': 'index.html',       // -> public/index.html (dipakai buat route /ml)
+  '/ml/*': 'index.html',     // untuk nested route client-side under /ml
+  '/login': 'login.html',
+  '/admin': 'admin.html',
+  '/akun': 'akun_ml.html',
+  '/akun/*': 'akun_ml.html'  // jika ada query atau slug di akhir
+};
+
+// helper send file safely
+function sendPublicFile(res, filename) {
+  const filePath = path.join(__dirname, 'public', filename);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  } else {
+    // fallback jika file gak ada
+    return res.status(404).send('Not found');
+  }
+}
+
+// register route handlers
+Object.keys(spaRoutes).forEach(route => {
+  apps.get(route, (req, res) => {
+    // Vary header agar caches memperhatikan Origin bila ada
+    res.set('Vary', 'Origin');
+    // jika perlu, kamu bisa log req.headers.host di sini untuk debugging
+    return sendPublicFile(res, spaRoutes[route]);
+  });
+});
+
 // ----------------- Start server -----------------
 const port = process.env.PORT || 2121;
 apps.listen(port, () => {
