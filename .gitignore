@@ -1,6 +1,5 @@
 # root
 .env
-.vercel
 .vscode
 .venv
 public/img-webp
