@@ -225,15 +225,16 @@ apps.post('/api/login', async (req, res) => {
     const expiresAt = Date.now() + 24 * 60 * 60 * 1000; // 1 day
     sessions.set(token, { user: 'admin', expiresAt });
 
-    const cookieOptions = {
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000,
-      sameSite: 'lax',
-      path: '/'
-    };
-    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-    res.cookie('admin_session', token, cookieOptions);
+const cookieOptions = {
+  httpOnly: true,
+  maxAge: 24 * 60 * 60 * 1000,
+  sameSite: 'none',   // <-- penting untuk cross-site
+  secure: true,       // <-- required by browsers when sameSite='none'
+  path: '/'
+};
+// jika ingin lokal dev tanpa https, kamu bisa conditionally set secure false saat NODE_ENV !== 'production'
+// tetapi untuk environment real (Vercel + Railway) gunakan secure: true
+res.cookie('admin_session', token, cookieOptions);
 
     try {
       await supabase.from('ranzirostore_loginadmin').update({ last_login: new Date() }).eq('username', 'admin');

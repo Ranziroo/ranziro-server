@@ -6,8 +6,7 @@
   // --- Wrapper: session check on load + logout handler ---
   async function checkSessionOrRedirect() {
     try {
-      const r = await fetch('https://ranziro-server-production.up.railway.app/api/check-session', { method: 'GET', credentials: 'same-origin' });
-      if (!r.ok) {
+const r = await fetch('https://ranziro-server-production.up.railway.app/api/check-session', { method: 'GET', credentials: 'include' });      if (!r.ok) {
         // redirect to login route
         window.location.href = '/login';
         return false;
@@ -27,8 +26,7 @@
 
   async function doLogoutFlow() {
     try {
-      await fetch('https://ranziro-server-production.up.railway.app/api/logout', { method: 'POST', credentials: 'same-origin' });
-    } catch (e) {
+await fetch('https://ranziro-server-production.up.railway.app/api/logout', { method: 'POST', credentials: 'include' });    } catch (e) {
       console.error('Logout request failed:', e);
     } finally {
       // Always redirect to login after attempting logout
