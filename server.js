@@ -1,4 +1,4 @@
-// server.js (versi lengkap + route dinamis inline + auth endpoints + ADMIN_PW bootstrap)
+// server.js (versi lengkap + route dinamis inline dipindahkan / dihapus + auth endpoints + ADMIN_PW bootstrap)
 require('dotenv').config();
 
 const express = require('express');
@@ -58,43 +58,9 @@ if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
 }
 const supabase = createClient(process.env.SUPABASE_URL || '', process.env.SUPABASE_KEY || '');
 
-// ----------------- Dynamic pages (inline routes) -----------------
-/**
- * Dynamic pages array.
- * Jika kamu ingin menambah halaman baru, cukup tambahkan { path, file } ke array.
- *
- * Important: This block is intentionally before express.static so these page routes
- * are handled first (useful if you want to inject meta or handle them specially).
- *
- * Note: we skip '/akun' here because /akun has a custom meta-injection handler below.
- */
-const pages = [
-  { path: '/mobile-legends', file: 'index.html' },
-  { path: '/akun', file: 'akun_ml.html' }, // kept for clarity but /akun handled separately
-  { path: '/admin', file: 'admin.html' },
-  { path: '/login', file: 'login.html' },
-];
-
-pages.forEach(route => {
-  if (route.path === '/akun') {
-    // skip here — /akun has special logic implemented later (meta injection)
-    return;
-  }
-  apps.get(route.path, (req, res) => {
-    try {
-      const filePath = path.join(__dirname, 'public', route.file);
-      if (fs.existsSync(filePath)) {
-        return res.sendFile(filePath);
-      }
-      return res.status(404).send('File not found');
-    } catch (err) {
-      console.error(`Error serving ${route.path} -> ${route.file}:`, err && err.stack ? err.stack : err);
-      return res.status(500).send('Internal Server Error');
-    }
-  });
-});
-
-// serve static public (assets, images, CSS, JS)
+// NOTE: Route handlers for static pages (index/login/admin/...) have been
+// removed from server.js and should be handled by route.js (self-registering).
+// Keep express.static to serve assets (CSS/JS/images) from /public:
 apps.use(express.static(path.join(__dirname, 'public')));
 
 // ----------------- Session store (in-memory) & auth helpers -----------------
@@ -225,16 +191,16 @@ apps.post('/api/login', async (req, res) => {
     const expiresAt = Date.now() + 24 * 60 * 60 * 1000; // 1 day
     sessions.set(token, { user: 'admin', expiresAt });
 
-const cookieOptions = {
-  httpOnly: true,
-  maxAge: 24 * 60 * 60 * 1000,
-  sameSite: 'none',   // <-- penting untuk cross-site
-  secure: true,       // <-- required by browsers when sameSite='none'
-  path: '/'
-};
-// jika ingin lokal dev tanpa https, kamu bisa conditionally set secure false saat NODE_ENV !== 'production'
-// tetapi untuk environment real (Vercel + Railway) gunakan secure: true
-res.cookie('admin_session', token, cookieOptions);
+    const cookieOptions = {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: 'none',   // <-- penting untuk cross-site
+      secure: true,       // <-- required by browsers when sameSite='none'
+      path: '/'
+    };
+    // jika ingin lokal dev tanpa https, kamu bisa conditionally set secure false saat NODE_ENV !== 'production'
+    // tetapi untuk environment real (Vercel + Railway) gunakan secure: true
+    res.cookie('admin_session', token, cookieOptions);
 
     try {
       await supabase.from('ranzirostore_loginadmin').update({ last_login: new Date() }).eq('username', 'admin');

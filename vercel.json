@@ -1,18 +1,12 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/login", "dest": "/login.html" },
-    { "src": "/admin", "dest": "/admin.html" },
-    { "src": "/akun", "dest": "/akun_ml.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "builds": [
+    { "src": "api/entry.js", "use": "@vercel/node" }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
-      ]
+      "src": "/(.*)",
+      "dest": "/api/entry.js"
     }
   ]
 }
