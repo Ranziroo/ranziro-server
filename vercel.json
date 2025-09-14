@@ -1,12 +1,12 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://ranziro-server-production.up.railway.app/api/:path*" },
-
     { "source": "/ml", "destination": "/index.html" },
     { "source": "/ml/:path*", "destination": "/index.html" },
 
     { "source": "/login", "destination": "/login.html" },
     { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/admin/:path*", "destination": "/admin.html" },
+
     { "source": "/akun", "destination": "/akun_ml.html" },
     { "source": "/akun/:path*", "destination": "/akun_ml.html" }
   ]
