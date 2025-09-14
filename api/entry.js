@@ -17,7 +17,7 @@ if (!global.__EXPRESS_APP__) {
   app.use(express.urlencoded({ extended: true }));
 
   // static assets: kalau Anda ada folder 'public', pastikan pathnya benar
-  app.use(express.static(path.join(__dirname, '..', 'routes')));
+  app.use(express.static(path.join(__dirname, 'routes')));
 
   // expose ke global
   global.expressApp = app;
@@ -25,7 +25,7 @@ if (!global.__EXPRESS_APP__) {
 
   // require route.js yang akan langsung mendaftarkan route ke global.expressApp
   // route.js harus berada di root project. sesuaikan path kalau beda.
-  require(path.join(__dirname, '..', 'route.js'));
+  require(path.join(__dirname, 'route.js'));
 }
 
 // Export single handler for Vercel
