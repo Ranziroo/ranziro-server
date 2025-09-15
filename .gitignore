@@ -2,8 +2,15 @@
 .env
 .vscode
 .venv
+server.js
 public/img-webp
 public/logo
+public/js/admin.js
+public/js/akun_ml.js
+public/js/login.js
+public/js/app.js
+public/js/global.js
+public/assets/loader.js
 node_modules
 convert-img.js
 readme.md

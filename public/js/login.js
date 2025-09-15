@@ -190,7 +190,7 @@
 
         showLoader();
         // small delay for UX so loader is visible
-        setTimeout(() => { window.location.href = 'admin.html'; }, 700);
+        setTimeout(() => { window.location.href = '/admin'; }, 700);
 
       } catch (err) {
         console.error('Login error', err);

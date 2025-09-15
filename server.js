@@ -635,8 +635,8 @@ apps.set('trust proxy', 1); // penting saat server berjalan di Railway / Vercel 
 
 // map route -> file di public/
 const spaRoutes = {
-  '/ml': 'index.html',       // -> public/index.html (dipakai buat route /ml)
-  '/ml/*': 'index.html',     // untuk nested route client-side under /ml
+  '/mobile-legends': 'index.html',       // -> public/index.html (dipakai buat route /ml)
+  '/mobile-legends/*': 'index.html',     // untuk nested route client-side under /ml
   '/login': 'login.html',
   '/admin': 'admin.html',
   '/akun': 'akun_ml.html',
