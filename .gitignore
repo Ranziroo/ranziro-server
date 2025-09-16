@@ -4,11 +4,14 @@
 .venv
 server.js
 public/img-webp
+public/img-backup
 public/logo
+public/gif
+public/img
 public/js/admin.js
-public/js/akun_ml.js
 public/js/login.js
 public/js/app.js
+public/js/akun.js
 public/js/global.js
 public/assets/loader.js
 node_modules

@@ -486,9 +486,50 @@ main {
     flex-direction: column;
 }
 
+.container-banner {
+  position: relative;
+  width: 100%;
+  padding: 6rem 10% 2rem 10%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(to bottom right, #535353, #131313);
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.banner-child {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: max-content;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  border-radius: 1rem;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---------- star canvas styles ---------- */
+#star-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+  mix-blend-mode: screen;
+  border-radius: 1rem;
+  will-change: transform;
+}
+
 .container-list {
     position: relative;
-    top: 6rem;
     width: 100%;
     height: max-content;
     padding: 0.5rem 10%;
@@ -1307,6 +1348,73 @@ footer svg {
     }
 }
 
+.container-unggul-parent {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10rem;
+}
+
+.container-unggul-parent h2 {
+    text-transform: uppercase;
+    color: white;
+    font-family: 'poppins' sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.container-unggul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.container-unggul-child {
+    position: relative;
+    height: 7rem;
+    padding: 2rem;
+    border: 1px solid #5c5c5c;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, #303030, #141414, #000000);
+    box-shadow: -3px 3px 1px #fbff00;
+    color: #ffffff;
+    transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-unggul-child:hover {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 transparent;
+    cursor: pointer;
+}
+
+.container-unggul-child div {
+    position: relative;
+}
+
+.container-unggul-child div h3 {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1.1rem; 
+    margin-bottom: 0.5rem;
+}
+
+.container-unggul-child div p {
+    color: #ffffffb2; 
+    font-size: 0.8rem;
+}
+
+.container-unggul-child i {
+    color: #fbff00; 
+    font-size: 2.5rem;
+}
+
 @media screen and (max-width: 480px) {
     header {
         padding: 1rem 5%;
@@ -1443,6 +1551,22 @@ footer svg {
         text-align: left;
     }
 
+    .container-unggul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-unggul-child i {
+        font-size: 1.5rem;
+    }
+
+    .container-banner {
+        padding: 6rem 5% 2rem 5%;
+    }
+
+    .banner {
+        height: 10rem;
+    }
+
 }
 
 /* landscape */
@@ -1519,5 +1643,21 @@ footer svg {
 
     .gallery-2 {
         display: none;
+    }
+
+    .banner {
+        height: 15rem;
+    }
+
+    .container-unggul-child div h3 {
+        font-size: 0.9rem;
+    }
+
+    .container-unggul-child div p {
+        font-size: 0.7rem;
+    }
+
+    .container-unggul-child i {
+        font-size: 1.2rem;
     }
 }
