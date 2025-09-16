@@ -54,7 +54,7 @@ header div {
     position: relative;
     width: max-content;
     height: max-content;
-    margin-right: 1rem;
+    margin-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
