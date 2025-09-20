@@ -29,11 +29,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     height: max-content;
-    padding: 0.5rem 10%;
+    padding: 0.5rem 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -489,32 +489,112 @@ main {
 .container-banner {
   position: relative;
   width: 100%;
-  padding: 6rem 10% 2rem 10%;
-  height: auto;
+  padding: 2rem 5% 2rem 5%;
+  height: max-content;
   display: grid;
   place-items: center;
   background: linear-gradient(to bottom right, #535353, #131313);
   margin-bottom: 1rem;
-  overflow: hidden;
 }
 
-.banner-child {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: max-content;
-}
-
-.banner {
+/* ====== Banner slider styles ====== */
+.banner-slider {
   position: relative;
   width: 100%;
-  height: 400px;
+  max-width: 1200px;
   border-radius: 1rem;
+  overflow: hidden;
   z-index: 2;
 }
 
-/* ---------- star canvas styles ---------- */
+.banner-slider .slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  touch-action: pan-y;
+  gap: var(--slide-gap, 2rem); /* <-- default 2rem gap */
+}
+
+/* Pastikan slide ukurannya fleksibel (flex-basis) */
+.banner-slider .slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+}
+
+/* gambar: transisi transform untuk efek scale */
+.banner-slider .slide img {
+  width: 100%;
+  height: 410px;
+  border-radius: 1rem;
+  display: block;
+  transition: transform 2s cubic-bezier(.2,.9,.2,1);
+  transform-origin: center center;
+}
+
+/* Saat slide sedang bergerak -> kecilkan semua gambar */
+.banner-slider.moving .slide img {
+  transform: scale(0.8);
+}
+
+/* Slide aktif agak lebih besar (override moving jika aktif) */
+.banner-slider .slide.active img {
+  transform: scale(1);
+}
+
+/* Controls */
+.banner-prev,
+.banner-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  border: none;
+  color: #fff;
+  height:3rem;
+  width: 3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 20;
+  border-radius: 50%;
+  line-height: 1;
+  transition: background .15s ease, transform .08s ease;
+}
+
+.banner-prev:hover,
+.banner-next:hover { transform: translateY(-50%) scale(1.04); background: rgba(0,0,0,0.6); }
+
+.banner-prev { left: 0.6rem; }
+.banner-next { right: 0.6rem; }
+
+/* Dots */
+.banner-dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 30;
+}
+
+.banner-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+
+.banner-dots button.active {
+  background: #fbff00;
+  transform: scale(1.15);
+}
+
 #star-canvas {
   position: absolute;
   inset: 0;
@@ -524,14 +604,13 @@ main {
   z-index: 1;
   mix-blend-mode: normal !important;
   border-radius: 1rem;
-  will-change: transform;
 }
 
 .container-list {
     position: relative;
     width: 100%;
     height: max-content;
-    padding: 0.5rem 10%;
+    padding: 0.5rem 5%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -816,7 +895,7 @@ main {
     width: 100%;
     margin-bottom: 5rem;
     height: max-content;
-    padding: 0.5rem 10%;
+    padding: 0.5rem 5%;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -1132,7 +1211,7 @@ footer svg {
     position: relative;
     width: 100%;
     height: max-content;
-    padding: 2rem 10% 0 10%;
+    padding: 2rem 5% 0 5%;
     background: #242424;
     display: flex;
     gap: 5rem;
@@ -1206,7 +1285,7 @@ footer svg {
     position: relative;
     width: 100%;
     height: 3rem;
-    padding: 2rem 10%;
+    padding: 2rem 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1223,128 +1302,9 @@ footer svg {
     margin-bottom: 3rem;
 }
 
-.area {
-    position: fixed;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.circles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.circles li {
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2421);
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-
-}
-
-.circles li:nth-child(1) {
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
-}
-
-
-.circles li:nth-child(2) {
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
-}
-
-.circles li:nth-child(3) {
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-}
-
-.circles li:nth-child(4) {
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
-}
-
-.circles li:nth-child(5) {
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
-}
-
-.circles li:nth-child(6) {
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 3s;
-}
-
-.circles li:nth-child(7) {
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 7s;
-}
-
-.circles li:nth-child(8) {
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 45s;
-}
-
-.circles li:nth-child(9) {
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-}
-
-.circles li:nth-child(10) {
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 11s;
-}
-
 .ui-panel-open {
     pointer-events: none;
     filter: blur(10px);
-}
-
-@keyframes animate {
-
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 0;
-    }
-
-    100% {
-        transform: translateY(-120vh) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
 }
 
 .container-unggul-parent {
@@ -1447,7 +1407,6 @@ footer svg {
     .container-list-3 {
         grid-template-columns: repeat(2, 1fr);
     }
-
 
     .card {
         height: 11rem;
@@ -1559,11 +1518,25 @@ footer svg {
     }
 
     .container-banner {
-        padding: 6rem 5% 1rem 5%;
+        padding: 1rem 5% 1rem 5%;
     }
 
-    .banner {
-        height: 10rem;
+    .banner-slider .slide img { 
+        height: 160px; 
+        background: #24242479;
+    }
+
+    .banner-prev,
+    .banner-next { 
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.85rem;
+        display: none;
+        visibility: hidden;
+    }
+    .banner-dots button {
+        width: 8px;
+        height: 8px;
     }
 
 }
@@ -1644,8 +1617,20 @@ footer svg {
         display: none;
     }
 
-    .banner {
-        height: 15rem;
+    .banner-slider .slide img { 
+        height: 275px; 
+    }
+
+    .banner-prev,
+    .banner-next { 
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.95rem;
+    }
+
+    .banner-dots button {
+        width: 9px;
+        height: 9px;
     }
 
     .container-unggul-child div h3 {

@@ -198,18 +198,34 @@
 
   <!-- main -->
   <main>
-      <!-- banner -->
 <section class="container-banner">
-  <!-- Canvas untuk bintang -->
+  <!-- Canvas existing (tetap) -->
   <canvas id="star-canvas" aria-hidden="true"></canvas>
 
-  <div class="banner-child">
-    <img
-      loading="lazy"
-      src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/Website%20(2500%20x%201080%20piksel)_20250916_233834_0000.webp"
-      alt="Banner"
-      class="banner"
-    >
+  <div class="banner-slider" id="bannerSlider" aria-roledescription="carousel">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+        <img loading="lazy"
+          src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/Banner_1.webp"
+          alt="Banner 1">
+      </div>
+
+      <!-- Slide 2 (ganti url dengan gambar yang diinginkan) -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+        <img loading="lazy"
+          src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/Banner_2.webp"
+          alt="Banner 2">
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="banner-prev" aria-label="Previous slide">&#10094;</button>
+    <button class="banner-next" aria-label="Next slide">&#10095;</button>
+
+    <!-- Dots -->
+    <div class="banner-dots" aria-hidden="false"></div>
   </div>
 </section>
 
@@ -394,27 +410,15 @@
         <div>Terakhir diakses: <span id="last-accessed"></span></div>
       </div>
     </footer>
-
-    <div class="area">
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-
   </main>
 
   <script src="js/apwssmeoow2453sGH.min.js"></script>
   <script src="js/glwoblswsmsw.min.js"></script>
   <script src="assets/lload34mdelp.min.js"></script>
+  <script src="js/components/strsInd4swsl2023dk.min.js"></script>
+  <script src="js/components/lstyr29331sw.min.js"></script>
+  <script src="js/components/cmmntybTnr33302.min.js"></script>
+  <script src="js/components/sldrIndxes234.min.js"></script>
 </body>
 
 </html>
