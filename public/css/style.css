@@ -501,7 +501,7 @@ main {
 .banner-slider {
   position: relative;
   width: 100%;
-  border-radius: 2rem;
+  border-radius: 1rem;
   overflow: hidden;
   z-index: 2;
 }
@@ -890,7 +890,7 @@ main {
 
 .gallery {
     position: relative;
-    top: 7rem;
+    margin-top: 2rem;
     width: 100%;
     margin-bottom: 5rem;
     height: max-content;
@@ -912,15 +912,11 @@ main {
 
 .gallery-1 {
     position: relative;
-    padding: 1rem;
     width: 100%;
     height: max-content;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    background: #242424;
     backdrop-filter: blur(10px);
-    border: 1px solid #444444;
     border-radius: 1rem;
 }
 
@@ -933,7 +929,7 @@ main {
     cursor: pointer;
     background: #242424;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     color: white;
     font-family: 'poppins' sans-serif;
     font-size: 1rem;
@@ -942,7 +938,8 @@ main {
 }
 
 .gallery-2 {
-    position: relative;
+    position: sticky;
+    top: 100px;
     width: 30%;
     height: max-content;
     padding: 1rem;
@@ -970,8 +967,11 @@ main {
     position: relative;
     width: 100%;
     height: max-content;
+    padding: 1rem 1rem 0 1rem;
+    border-radius: 1rem 1rem 0 0;
     display: flex;
     flex-direction: column;
+    background: #242424;
 }
 
 .gallery-1-3 {
@@ -987,11 +987,14 @@ main {
 
 .container-detail {
     position: relative;
+    padding: 1rem;
     width: 100%;
     height: max-content;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    background: #242424;
+    border-radius: 0 0 1rem 1rem;
 }
 
 .detail-title {
@@ -1108,7 +1111,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .slider {
@@ -1117,7 +1120,7 @@ main {
     width: max-content;
     height: max-content;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 .slider-images {
@@ -1477,6 +1480,9 @@ html.is-touch button:focus {
 
     .gallery-2 {
         width: 100%;
+        display: none;
+        position: relative;
+        top: 0;
     }
 
     .slider-images {
@@ -1505,10 +1511,6 @@ html.is-touch button:focus {
     .gallery {
         margin-bottom: 10rem;
         padding: 0.5rem 5%;
-    }
-
-    .gallery-2 {
-        display: none;
     }
 
     .not-found {
@@ -1666,4 +1668,60 @@ html.is-touch button:focus {
     .container-unggul-child i {
         font-size: 1.2rem;
     }
+}
+
+/* Ripple bubble effect (di atas semua tombol aktif) */
+.filter-btn,
+.search-filter-btn {
+  position: relative;
+  overflow: visible; /* biar ripple bisa keluar */
+  z-index: 1;
+}
+
+/* Ripple kuning */
+.filter-btn.active::before,
+.filter-btn.active::after,
+.search-filter-btn.active::before,
+.search-filter-btn.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 3px solid #ffeb3b; /* kuning ripple */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: none;
+  /* z-index tinggi supaya di atas konten tombol */
+  z-index: 999;
+  animation: ripple-btn 1.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Ripple kedua (delay) */
+.filter-btn.active::after,
+.search-filter-btn.active::after {
+  animation-delay: -0.9s;
+}
+
+@keyframes ripple-btn {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.9;
+  }
+  100% {
+    width: 150%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+
+/* Kalau mau konten tombol (teks/icon) tetap di atas ripple, 
+   hilangkan aturan z-index ini. 
+   Kalau mau ripple menutupi semuanya, biarkan seperti ini */
+.filter-btn * , .search-filter-btn * {
+  position: relative;
+  z-index: 1; /* lebih rendah dari ripple */
 }
