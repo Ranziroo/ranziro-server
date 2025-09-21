@@ -501,8 +501,7 @@ main {
 .banner-slider {
   position: relative;
   width: 100%;
-  max-width: 1200px;
-  border-radius: 1rem;
+  border-radius: 2rem;
   overflow: hidden;
   z-index: 2;
 }
@@ -1374,7 +1373,30 @@ footer svg {
     font-size: 2.5rem;
 }
 
+/* 1) Hilangkan overlay biru saat tap pada perangkat sentuh (iOS/Android) */
+@media (hover: none) and (pointer: coarse) {
+  a, button {
+    -webkit-tap-highlight-color: transparent; /* Chrome/Safari mobile */
+  }
+}
+
+/* 2) Pastikan focus untuk keyboard tetap terlihat.
+   Hanya sembunyikan outline jika focus bukan berasal dari keyboard (modern browsers) */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none; /* kalau pakai shadow sebagai fokus */
+}
+
+/* 3) Fallback untuk browser lama: deteksi perangkat sentuh dan sembunyikan focus hanya untuk mereka */
+html.is-touch a:focus,
+html.is-touch button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 @media screen and (max-width: 480px) {
+    
     header {
         padding: 1rem 5%;
     }

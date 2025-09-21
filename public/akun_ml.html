@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="main">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" type="image/webp" />
+  <link rel="icon"
+    href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp"
+    type="image/webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ranziro Store" />
+  <meta property="og:description" content="Jual beli akun Mobile Legends. Cek koleksi dan harga terbaik." />
+  <meta property="og:image"
+    content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
+  <meta property="og:url" content="Ranziro Store.vercel.app/akun" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image"
+    content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
   <title>Akun Detail</title>
+
+  <script>
+    (function () {
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.documentElement.classList.add('is-touch');
+      }
+    })();
+  </script>
+
   <!-- link css -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="assets/loader.css">
@@ -24,12 +44,14 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body x-data="main">
+<body>
 
   <!-- sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <img loading="lazy" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
+      <img loading="lazy"
+        src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
+        alt="ranziro_store" class="logo" />
       <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
@@ -136,25 +158,24 @@
       </template>
 
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
-<template x-if="!typing">
-  <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
-    <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
-      class="search-links">
-      <div class="search-thumb">
-        <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
-          <span class="sold-search">SOLD</span>
-        </div>
-        <img loading="lazy" :src="game.imgAkun" alt="" class="img-search"
-  :class="{'img-sold': !game.status}" />
+      <template x-if="!typing">
+        <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
+          <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+            class="search-links">
+            <div class="search-thumb">
+              <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
+                <span class="sold-search">SOLD</span>
+              </div>
+              <img loading="lazy" :src="game.imgAkun" alt="" class="img-search" :class="{'img-sold': !game.status}" />
 
-      </div>
-      <div class="container-search-2">
-        <h3 x-text="game.namaAkun" class="search-akun"></h3>
-        <p x-text="game.hargaAkun"></p>
-      </div>
-    </a>
-  </template>
-</template>
+            </div>
+            <div class="container-search-2">
+              <h3 x-text="game.namaAkun" class="search-akun"></h3>
+              <p x-text="game.hargaAkun"></p>
+            </div>
+          </a>
+        </template>
+      </template>
 
       <!-- tombol tampilkan lebih banyak -->
       <div style="text-align:center; padding:.5rem;"
@@ -171,11 +192,13 @@
   <!-- header -->
   <header>
     <div>
-            <button class="btn-menu">
+      <button class="btn-menu">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <img loading="lazy" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
+      <img loading="lazy"
+        src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
+        alt="ranziro_store" class="logo" />
     </div>
 
     <button class="btn-search">
@@ -186,7 +209,7 @@
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
     </button>
-    
+
   </header>
 
   <!-- main -->
@@ -296,7 +319,9 @@
       </svg>
       <div class="footer-2">
         <div class="footer-card">
-          <img loading="lazy" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp" alt="ranziro_store" class="footer-logo" />
+          <img loading="lazy"
+            src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
+            alt="ranziro_store" class="footer-logo" />
           <div class="footer-deskripsi">
             Ranziro Store menjual berbagai akun Mobile Legends dengan harga bervariasi sesuai budgetmu. Pilihan terbaik
             untuk para
@@ -353,7 +378,7 @@
   </main>
 
   <!-- js -->
-  <script src="js/akwn203m4xdk.min.js"></script>
+  <script src="js/akun.js"></script>
   <script src="js/apwssmeoow2453sGH.min.js"></script>
   <script src="js/glwoblswsmsw.min.js"></script>
   <script src="assets/lload34mdelp.min.js"></script>
