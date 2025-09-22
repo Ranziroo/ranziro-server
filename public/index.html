@@ -105,11 +105,11 @@
     <div class="container-search-controls" style="display:flex; justify-content:space-between; gap:0.5rem; ">
       <div class="search-filter-group" role="tablist" aria-label="Filter status">
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
-          @click="setFilterSearch('all')">All</button>
+          @click="setFilterSearch('all')">Semua</button>
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'available' }"
-          @click="setFilterSearch('available')">Available</button>
+          @click="setFilterSearch('available')">Tersedia</button>
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'sold' }"
-          @click="setFilterSearch('sold')">Sold</button>
+          @click="setFilterSearch('sold')">Terjual</button>
       </div>
 
       <div style="position:relative;">
@@ -274,13 +274,13 @@
           style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap:1rem; flex-wrap:wrap;">
           <div class="container-filter" role="tablist" aria-label="Filter akun">
             <button class="filter-btn" :class="{ 'active': selectedFilter === 'all' }" @click="setFilter('all')"
-              type="button">All</button>
+              type="button">Semua</button>
 
             <button class="filter-btn" :class="{ 'active': selectedFilter === 'available' }"
-              @click="setFilter('available')" type="button">Available</button>
+              @click="setFilter('available')" type="button">Tersedia</button>
 
             <button class="filter-btn" :class="{ 'active': selectedFilter === 'sold' }" @click="setFilter('sold')"
-              type="button">Sold</button>
+              type="button">Terjual</button>
           </div>
 
           <!-- DROPDOWN SORT -->

@@ -113,14 +113,16 @@ header div {
     place-items: center;
     cursor: pointer;
     background: transparent;
-    border: 2px solid transparent;
-    color: #ffffff;
+    border: 2px solid #ffffff88;
+    color: #ffffff88;
     border-radius: 50%;
     transition: 0.3s ease;
 }
 
 .btn-close:hover {
-    border-color: #ffffff;
+    background: #fbff00;
+    border-color: #fbff00;
+    color: #000;
 }
 
 .btn-close i {
@@ -334,7 +336,7 @@ header div {
 }
 
 .container-search-1::-webkit-scrollbar-thumb {
-    background: #ffffff;
+    background: #ffffff28;
     border-radius: 0.5rem;
 }
 

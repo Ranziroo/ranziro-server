@@ -104,11 +104,11 @@
     <div class="container-search-controls" style="display:flex; justify-content:space-between; gap:0.5rem; ">
       <div class="search-filter-group" role="tablist" aria-label="Filter status">
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
-          @click="setFilterSearch('all')">All</button>
+          @click="setFilterSearch('all')">Semua</button>
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'available' }"
-          @click="setFilterSearch('available')">Available</button>
+          @click="setFilterSearch('available')">Tersedia</button>
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'sold' }"
-          @click="setFilterSearch('sold')">Sold</button>
+          @click="setFilterSearch('sold')">Terjual</button>
       </div>
 
       <div style="position:relative;">
