@@ -150,24 +150,40 @@
       </div>
 
       <!-- jika tidak typing dan query ada tapi hasil = 0 -->
-      <template x-if="!typing && tempSearchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
+      <template x-if="!typing && tempSearchQuery.trim().length > 0 && filteredDataForSearch.length === 0 && loaded">
         <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
           <div style="padding:1rem; color:#ffffff52; text-align:center;">Akun tidak ditemukan</div>
           <i class="fa-solid fa-dice" style="font-size: 3rem; color: #ffffff52; top: -1rem; margin-bottom: 0.5rem;"></i>
         </div>
       </template>
 
+      <!-- Jika search terbuka dan query kosong tapi hasil filter (available/sold/all) = 0 -->
+      <template
+        x-if="!typing && tempSearchQuery.trim().length === 0 && filteredDataForSearchAll.length === 0 && loaded">
+        <div
+          style="width:100%; display:flex; flex-direction:column; align-items:center; padding:1rem; color:#ffffff80; font-size: 0.9rem;">
+          <template x-if="selectedFilterSearch === 'available'">
+            <div>Tidak ada akun yang tersedia</div>
+          </template>
+          <template x-if="selectedFilterSearch === 'sold'">
+            <div>Tidak ada akun yang terjual</div>
+          </template>
+          <template x-if="selectedFilterSearch === 'all'">
+            <div>Akun tidak ditemukan</div>
+          </template>
+        </div>
+      </template>
+
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
       <template x-if="!typing">
-        <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
+        <template x-for="(game, idx) in filteredDataForSearch" :key="game.namaAkun + '|' + animCounterSearch">
           <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
-            class="search-links">
+            class="search-links stagger-fade" :style="`animation-delay: ${getSearchDelay(idx)}s`">
             <div class="search-thumb">
               <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
                 <span class="sold-search">SOLD</span>
               </div>
               <img loading="lazy" :src="game.imgAkun" alt="" class="img-search" :class="{'img-sold': !game.status}" />
-
             </div>
             <div class="container-search-2">
               <h3 x-text="game.namaAkun" class="search-akun"></h3>

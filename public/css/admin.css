@@ -265,6 +265,14 @@ main {
     background: #444;
 }
 
+.sidebar-btn.active {
+  background: rgba(255,255,255,0.06);
+  font-weight: 600;
+}
+
+.panel-section { display: none; } /* sembunyikan default */
+.panel-section:first-of-type { display: block; } /* fallback: tampilkan panel pertama */
+
 .sidebar-btn i { 
     position: absolute;
     right: 1rem;
