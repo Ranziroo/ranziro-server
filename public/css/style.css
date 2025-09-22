@@ -1125,8 +1125,8 @@ main {
 .slider-images {
     position: relative;
     display: flex;
-    width: 25rem;
-    height: 25rem;
+    width: 27rem;
+    height: 27rem;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -1485,8 +1485,8 @@ html.is-touch button:focus {
     }
 
     .slider-images {
-        width: 15rem;
-        height: 15rem;
+        width: 17rem;
+        height: 17rem;
     }
 
     .btn-rekber {
@@ -1619,8 +1619,8 @@ html.is-touch button:focus {
     }
 
     .slider-images {
-        width: 20rem;
-        height: 20rem;
+        width: 22rem;
+        height: 22rem;
     }
 
     .prev,

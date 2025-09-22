@@ -257,6 +257,9 @@ main {
     font-size: 1rem;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     transition: background 0.25s ease;
     font-family: 'Poppins', sans-serif;
 }
