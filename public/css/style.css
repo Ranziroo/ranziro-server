@@ -917,7 +917,6 @@ main {
     height: max-content;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
     border-radius: 1rem;
 }
 
@@ -1669,4 +1668,15 @@ html.is-touch button:focus {
     .container-unggul-child i {
         font-size: 1.2rem;
     }
+}
+
+/* Falling leaves background */
+#bg-leaves {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;           /* di belakang konten */
+  pointer-events: none; /* tidak mengganggu klik */
+  mix-blend-mode: normal;
 }
