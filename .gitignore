@@ -18,6 +18,7 @@ public/js/components/sliderIndex.js
 public/js/components/communityBtn.js
 public/js/components/lastYear.js
 public/js/components/starsIndex.js
+public/js/components/leaves.js
 node_modules
 convert-img.js
 readme.md

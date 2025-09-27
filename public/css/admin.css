@@ -647,3 +647,16 @@ table td button.delete:hover {
   .toast { right: .75rem; left: .75rem; min-width: auto; max-width: unset; width: auto; }
   .toast-wrap { right: .5rem; left: .5rem; top: 0.8rem; align-items: stretch; }
 }
+
+/* Convert panel */
+#panel-convert { right: -460px; transition: right .28s ease; }
+#panel-convert.show { right: 0 !important; }
+#panel-convert-overlay { display: none; }
+#panel-convert-overlay.show { display: block; }
+
+/* Sidebar active highlight */
+.sidebar-btn.active { background: rgba(255,255,255,0.03); border-left: 3px solid #5ac8fa; }
+
+/* Button style (override jika ada di admin.css) */
+.btn-action { display:inline-block; padding:.45rem .8rem; border-radius:8px; border:0; cursor:pointer; background:#1976d2; color:#fff; text-decoration:none; }
+

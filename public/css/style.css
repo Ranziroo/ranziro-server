@@ -1136,28 +1136,6 @@ main {
     box-sizing: border-box;
 }
 
-.prev,
-.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 3rem;
-}
-
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
-}
-
 .container-chat {
     position: relative;
     width: 100%;
@@ -1485,18 +1463,18 @@ html.is-touch button:focus {
         top: 0;
     }
 
+    .slider {
+        width: 100%;
+        max-width: max-content;
+    }
+
     .slider-images {
-        width: 17rem;
-        height: 17rem;
+        width: 100%;
+        height: 100%;
     }
 
     .btn-rekber {
         font-size: 0.8rem;
-    }
-
-    .prev,
-    .next {
-        font-size: 1.5rem;
     }
 
     .trigger-gallery-2 {
@@ -1679,4 +1657,67 @@ html.is-touch button:focus {
   z-index: 0;           /* di belakang konten */
   pointer-events: none; /* tidak mengganggu klik */
   mix-blend-mode: normal;
+}
+
+/* Thumbnails (horizontal, bottom-right) */
+.slider-thumbs {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  gap: .5rem;
+  z-index: 30;
+  align-items: center;
+  pointer-events: auto;
+  background: transparent;
+  padding: .2rem;
+}
+.slider-thumbs .thumb-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: .4rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.slider-thumbs .thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slider-thumbs .thumb-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
+.slider-thumbs .thumb-btn.active { outline: 2px solid #fbff00; transform: scale(1.03); }
+
+/* Lightbox */
+.ranziro-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.92);
+  cursor: zoom-out;
+}
+.ranziro-lightbox .lb-inner { max-width: 92%; max-height: 92%; overflow: hidden; }
+.ranziro-lightbox .lb-img { max-width: 100%; max-height: 100%; transform-origin: center center; transition: transform .08s ease; display: block; user-select: none; -webkit-user-drag: none; }
+.ranziro-lightbox .lb-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .slider-thumbs { right: .6rem; bottom: .6rem; gap: .35rem; }
+  .slider-thumbs .thumb-btn { width: 44px; height: 44px; }
 }
