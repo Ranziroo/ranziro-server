@@ -51,16 +51,15 @@
 <body>
   <!-- sidebar -->
   <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
+    <a href="/mobile-legends">
       <img loading="lazy"
         src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
         alt="ranziro_store" class="logo" />
-      <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
-    </div>
+    </a>
 
     <a href="/mobile-legends" class="sidebar-links">
-      <p>Mobile Legends</p>
-      <i class="fa-solid fa-gamepad"></i>
+      <p>Beranda</p>
+      <i class="fa-solid fa-house"></i>
     </a>
 
     <a target="_blank" rel="noopener noreferrer"
@@ -179,7 +178,7 @@
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
       <template x-if="!typing">
         <template x-for="(game, idx) in filteredDataForSearch" :key="game.namaAkun + '|' + animCounterSearch">
-          <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+          <a :href="`/mobile-legends/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=search_bar&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
             class="search-links stagger-fade" :style="`animation-delay: ${getSearchDelay(idx)}s`">
             <div class="search-thumb">
               <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
@@ -209,15 +208,13 @@
 
   <!-- header -->
   <header>
-    <div>
-      <button class="btn-menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
+    <a href="/mobile-legends">
       <img loading="lazy"
         src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
         alt="ranziro_store" class="logo" />
-    </div>
+    </a>
+
+      <div>
 
     <button class="btn-search">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -227,6 +224,12 @@
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
     </button>
+
+          <button class="btn-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+        
+      </div>
 
   </header>
 
@@ -315,7 +318,7 @@
       <div class="container-list-3">
         <!-- Modified: staggered fade + index + key with animCounterMain -->
         <template x-for="(game, idx) in visibleData" :key="game.namaAkun + '|' + animCounterMain">
-          <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=main_list&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
+          <a :href="`/mobile-legends/akun?nama=${encodeURIComponent(game.namaAkun)}&harga=${encodeURIComponent(game.hargaAkun)}&status=${game.status}&ref=main_list&src=ranziro&trackid=${Math.random().toString(36).substring(2,15)}`"
             class="card-parents stagger-fade" :style="`animation-delay: ${getMainDelay(idx)}s`"
             x-transition:enter="fade-up-enter" x-transition:enter-start="fade-up-enter-start"
             x-transition:enter-end="fade-up-enter-end" x-transition:leave="fade-up-leave"

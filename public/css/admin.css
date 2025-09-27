@@ -12,6 +12,50 @@
   --radius: 10px;
 }
 
+.btn-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding:6px;
+  border-radius:8px;
+}
+
+.btn-menu {
+  margin-right: 1rem;
+}
+
+.btn-search {
+  width: 15%;
+}
+
+.btn-search:focus,
+.btn-search:focus-within {
+  width: 20%;
+}
+
+@media screen and (max-width: 480px) {
+  .btn-search {
+    width: 35%;
+  }
+  .btn-search:focus,
+  .btn-search:focus-within {
+    width: 40%;
+  }
+  
+}
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  .btn-search {
+    width: 30%;
+  }
+  .btn-search:focus,
+  .btn-search:focus-within {
+    width: 35%;
+  }
+  
+}
+
 /* Modal shell (lebih compact) */
 #edit-akun-modal {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
