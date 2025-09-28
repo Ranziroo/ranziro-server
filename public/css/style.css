@@ -1661,6 +1661,7 @@ html.is-touch button:focus {
     .akun-banner {
         width: 100%;
         height: 17rem;
+        background-size: cover;
         background-position: right;
     }
 
