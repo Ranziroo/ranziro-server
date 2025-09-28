@@ -459,123 +459,132 @@ main {
 }
 
 .container-banner {
-  position: relative;
-  width: 100%;
-  padding: 2rem 5% 2rem 5%;
-  height: max-content;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(to bottom right, #535353, #131313);
-  margin-bottom: 1rem;
-  z-index: 100;
+    position: relative;
+    width: 100%;
+    padding: 2rem 5% 2rem 5%;
+    height: max-content;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(to bottom right, #535353, #131313);
+    margin-bottom: 1rem;
+    z-index: 100;
 }
 
 /* ====== Banner slider styles ====== */
 .banner-slider {
-  position: relative;
-  width: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-  z-index: 2;
+    position: relative;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .banner-slider .slides {
-  display: flex;
-  width: 100%;
-  transition: transform 0.6s cubic-bezier(.2,.9,.2,1);
-  will-change: transform;
-  touch-action: pan-y;
-  gap: var(--slide-gap, 2rem); /* <-- default 2rem gap */
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(.2, .9, .2, 1);
+    will-change: transform;
+    touch-action: pan-y;
+    gap: var(--slide-gap, 2rem);
+    /* <-- default 2rem gap */
 }
 
 /* Pastikan slide ukurannya fleksibel (flex-basis) */
 .banner-slider .slide {
-  flex: 0 0 100%;
-  box-sizing: border-box;
-  display: grid;
-  place-items: center;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
 }
 
 /* gambar: transisi transform untuk efek scale */
 .banner-slider .slide img {
-  width: 100%;
-  height: 425px;
-  border-radius: 1rem;
-  display: block;
-  transition: transform 2s cubic-bezier(.2,.9,.2,1);
-  transform-origin: center center;
+    width: 100%;
+    height: 425px;
+    border-radius: 1rem;
+    display: block;
+    transition: transform 2s cubic-bezier(.2, .9, .2, 1);
+    transform-origin: center center;
 }
 
 /* Saat slide sedang bergerak -> kecilkan semua gambar */
 .banner-slider.moving .slide img {
-  transform: scale(0.8);
+    transform: scale(0.8);
 }
 
 /* Slide aktif agak lebih besar (override moving jika aktif) */
 .banner-slider .slide.active img {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 /* Controls */
 .banner-prev,
 .banner-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.45);
-  border: none;
-  color: #fff;
-  height:3rem;
-  width: 3rem;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 20;
-  border-radius: 50%;
-  line-height: 1;
-  transition: background .15s ease, transform .08s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.45);
+    border: none;
+    color: #fff;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+    line-height: 1;
+    transition: background .15s ease, transform .08s ease;
 }
 
 .banner-prev:hover,
-.banner-next:hover { transform: translateY(-50%) scale(1.04); background: rgba(0,0,0,0.6); }
+.banner-next:hover {
+    transform: translateY(-50%) scale(1.04);
+    background: rgba(0, 0, 0, 0.6);
+}
 
-.banner-prev { left: 0.6rem; }
-.banner-next { right: 0.6rem; }
+.banner-prev {
+    left: 0.6rem;
+}
+
+.banner-next {
+    right: 0.6rem;
+}
 
 /* Dots */
 .banner-dots {
-  position: absolute;
-  bottom: 0.8rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.4rem;
-  z-index: 30;
+    position: absolute;
+    bottom: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.4rem;
+    z-index: 30;
 }
 
 .banner-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.4);
-  cursor: pointer;
-  transition: transform .12s ease, background .12s ease;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease;
 }
 
 .banner-dots button.active {
-  background: #fbff00;
-  transform: scale(1.15);
+    background: #fbff00;
+    transform: scale(1.15);
 }
 
 #star-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  mix-blend-mode: normal !important;
-  border-radius: 1rem;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: normal !important;
+    border-radius: 1rem;
 }
 
 .container-list {
@@ -880,7 +889,7 @@ main {
     right: 0;
     width: 100%;
     height: 9rem;
-    background: url('https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/banner-bottom.webp'); 
+    background: url('https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/banner-bottom.webp');
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -892,74 +901,76 @@ main {
 
 /* scene menyediakan perspektif 3D */
 .scene {
-  position: relative;
-  z-index: 0;
-  width: 20rem;
-  height: 5rem;
+    position: relative;
+    z-index: 0;
+    width: 20rem;
+    height: 5rem;
 }
 
 /* card adalah objek yang dimiringkan di ruang 3D */
 .card-roger {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform-origin: center center;
-  /* rotasi dasar; sesuaikan sudutnya */
-  transform: rotateX(-20deg) rotateY(20deg) rotateZ(-5deg);
-  transition: transform .35s cubic-bezier(.2,.9,.2,1);
-  will-change: transform;
-  position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    /* rotasi dasar; sesuaikan sudutnya */
+    transform: rotateX(-20deg) rotateY(20deg) rotateZ(-5deg);
+    transition: transform .35s cubic-bezier(.2, .9, .2, 1);
+    will-change: transform;
+    position: relative;
 }
 
 /* gambarmu — potong rapi, beri kedalaman (translateZ) */
 /* Ganti box-shadow di .roger-metrozero dengan ini */
 .roger-metrozero {
-  position: absolute;
-  left: 25%;
-  top: -7rem;
-  width: 15rem;
-  height: 17rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  display: block;
-  transform: translateZ(50px);
-  will-change: transform;
-  backface-visibility: hidden;
+    position: absolute;
+    left: 25%;
+    top: -7rem;
+    width: 15rem;
+    height: 17rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: block;
+    transform: translateZ(50px);
+    will-change: transform;
+    backface-visibility: hidden;
 
-  /* Layered shadows: inset highlight + ambient + contact + subtle detail */
-  box-shadow:
-    /* soft glossy highlight (inside, top) */
-    inset 0 8px 24px rgba(255,255,255,0.06),
-    /* small inner shadow along bottom for depth */
-    inset 0 -6px 18px rgba(0,0,0,0.12),
-    /* main soft ambient shadow */
-    0 22px 40px rgba(0,0,0,0.52),
-    /* smaller, sharper contact shadow closer to the element */
-    0 10px 18px rgba(0,0,0,0.38),
-    /* subtle outer halo to blend with background */
-    0 2px 6px rgba(0,0,0,0.12);
+    /* Layered shadows: inset highlight + ambient + contact + subtle detail */
+    box-shadow:
+        /* soft glossy highlight (inside, top) */
+        inset 0 8px 24px rgba(255, 255, 255, 0.06),
+        /* small inner shadow along bottom for depth */
+        inset 0 -6px 18px rgba(0, 0, 0, 0.12),
+        /* main soft ambient shadow */
+        0 22px 40px rgba(0, 0, 0, 0.52),
+        /* smaller, sharper contact shadow closer to the element */
+        0 10px 18px rgba(0, 0, 0, 0.38),
+        /* subtle outer halo to blend with background */
+        0 2px 6px rgba(0, 0, 0, 0.12);
 
-  /* optional additional natural shadow via filter */
-  filter: drop-shadow(0 26px 40px rgba(0,0,0,0.35));
+    /* optional additional natural shadow via filter */
+    filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.35));
 }
 
 /* pseudo-shadow/ground (lebih lembut dan melebar) */
 .scene::after {
-  content: "";
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  bottom: -24px;         /* sedikit lebih rendah */
-  height: 44px;          /* lebih lebar */
-  background: radial-gradient(ellipse at center,
-              rgba(0,0,0,0.6) 0%,
-              rgba(0,0,0,0.18) 18%,
-              rgba(0,0,0,0.05) 50%,
-              transparent 100%);
-  filter: blur(18px);
-  transform-origin: center;
-  z-index: -1;
-  opacity: 0.95;
+    content: "";
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: -24px;
+    /* sedikit lebih rendah */
+    height: 44px;
+    /* lebih lebar */
+    background: radial-gradient(ellipse at center,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.18) 18%,
+            rgba(0, 0, 0, 0.05) 50%,
+            transparent 100%);
+    filter: blur(18px);
+    transform-origin: center;
+    z-index: -1;
+    opacity: 0.95;
 }
 
 .akun-banner-bottom-1 {
@@ -1451,43 +1462,47 @@ footer svg {
 }
 
 .container-unggul-child div h3 {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 1.1rem; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
 
 .container-unggul-child div p {
-    color: #ffffffb2; 
+    color: #ffffffb2;
     font-size: 0.8rem;
 }
 
 .container-unggul-child i {
-    color: #fbff00; 
+    color: #fbff00;
     font-size: 2rem;
 }
 
 /* 1) Hilangkan overlay biru saat tap pada perangkat sentuh (iOS/Android) */
 @media (hover: none) and (pointer: coarse) {
-  a, button {
-    -webkit-tap-highlight-color: transparent; /* Chrome/Safari mobile */
-  }
+
+    a,
+    button {
+        -webkit-tap-highlight-color: transparent;
+        /* Chrome/Safari mobile */
+    }
 }
 
 a:focus:not(:focus-visible),
 button:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none; /* kalau pakai shadow sebagai fokus */
+    outline: none;
+    box-shadow: none;
+    /* kalau pakai shadow sebagai fokus */
 }
 
 /* 3) Fallback untuk browser lama: deteksi perangkat sentuh dan sembunyikan focus hanya untuk mereka */
 html.is-touch a:focus,
 html.is-touch button:focus {
-  outline: none;
-  box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 
 @media screen and (max-width: 480px) {
-    
+
     .btn-search {
         width: 75%;
     }
@@ -1640,19 +1655,20 @@ html.is-touch button:focus {
         padding: 1rem 5% 1rem 5%;
     }
 
-    .banner-slider .slide img { 
-        height: 160px; 
+    .banner-slider .slide img {
+        height: 160px;
         background: #24242479;
     }
 
     .banner-prev,
-    .banner-next { 
+    .banner-next {
         width: 2rem;
         height: 2rem;
         font-size: 0.85rem;
         display: none;
         visibility: hidden;
     }
+
     .banner-dots button {
         width: 8px;
         height: 8px;
@@ -1691,6 +1707,7 @@ html.is-touch button:focus {
     .akun-banner-bottom-1:nth-child(1) {
         margin-left: -1rem;
     }
+
     .akun-banner-bottom-1:nth-child(2) {
         margin-left: -2rem;
     }
@@ -1797,12 +1814,12 @@ html.is-touch button:focus {
         display: none;
     }
 
-    .banner-slider .slide img { 
-        height: 275px; 
+    .banner-slider .slide img {
+        height: 275px;
     }
 
     .banner-prev,
-    .banner-next { 
+    .banner-next {
         width: 2.5rem;
         height: 2.5rem;
         font-size: 0.95rem;
@@ -1872,73 +1889,108 @@ html.is-touch button:focus {
 
 /* Falling leaves background */
 #bg-leaves {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* tidak mengganggu klik */
-  mix-blend-mode: normal;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* tidak mengganggu klik */
+    mix-blend-mode: normal;
 }
 
 /* Thumbnails (horizontal, bottom-right) */
 .slider-thumbs {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  display: flex;
-  gap: .5rem;
-  z-index: 30;
-  align-items: center;
-  pointer-events: auto;
-  background: transparent;
-  padding: .2rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    gap: .5rem;
+    z-index: 30;
+    align-items: center;
+    pointer-events: auto;
+    background: transparent;
+    padding: .2rem;
 }
+
 .slider-thumbs .thumb-btn {
-  border: none;
-  background: transparent;
-  padding: 0;
-  display: inline-grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: .4rem;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all .12s ease;
-  border: 1px solid rgba(255,255,255,0.06);
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: inline-grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: .4rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .12s ease;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
+
 .slider-thumbs .thumb-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-.slider-thumbs .thumb-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
-.slider-thumbs .thumb-btn.active { outline: 2px solid #fbff00; transform: scale(1.03); }
+
+.slider-thumbs .thumb-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.slider-thumbs .thumb-btn.active {
+    outline: 2px solid #fbff00;
+    transform: scale(1.03);
+}
 
 /* Lightbox */
 .ranziro-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  background: rgba(0,0,0,0.92);
-  cursor: zoom-out;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.92);
+    cursor: zoom-out;
 }
-.ranziro-lightbox .lb-inner { max-width: 92%; max-height: 92%; overflow: hidden; }
-.ranziro-lightbox .lb-img { max-width: 100%; max-height: 100%; transform-origin: center center; transition: transform .08s ease; display: block; user-select: none; -webkit-user-drag: none; }
+
+.ranziro-lightbox .lb-inner {
+    max-width: 92%;
+    max-height: 92%;
+    overflow: hidden;
+}
+
+.ranziro-lightbox .lb-img {
+    max-width: 100%;
+    max-height: 100%;
+    transform-origin: center center;
+    transition: transform .08s ease;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 .ranziro-lightbox .lb-close {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  color: #fff;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
+
 @media (max-width: 480px) {
-  .slider-thumbs { right: .6rem; bottom: .6rem; gap: .35rem; }
-  .slider-thumbs .thumb-btn { width: 44px; height: 44px; }
+    .slider-thumbs {
+        right: .6rem;
+        bottom: .6rem;
+        gap: .35rem;
+    }
+
+    .slider-thumbs .thumb-btn {
+        width: 44px;
+        height: 44px;
+    }
 }
