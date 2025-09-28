@@ -1659,9 +1659,9 @@ html.is-touch button:focus {
     }
 
     .akun-banner {
-        height: 20rem;
-        background-size: cover;
-        background-position: left;
+        width: 100%;
+        height: 15rem;
+        background-position: right;
     }
 
     .akun-banner-bottom {
