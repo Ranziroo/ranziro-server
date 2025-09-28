@@ -227,18 +227,16 @@
 
   <!-- header -->
   <header>
-    <a href="/mobile-legends">
       <img loading="lazy"
         src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
         alt="ranziro_store" class="logo" />
-    </a>
 
       <div>
     <button class="btn-search">
       <i class="fa-solid fa-magnifying-glass"></i>
 
       <!-- Input Search -->
-      <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
+      <input type="text" id="input-search" class="input-search" placeholder="Cari akun" x-model="tempSearchQuery"
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
     </button>
@@ -253,6 +251,42 @@
 
   <!-- main -->
   <main id="account-detail">
+    <div class="akun-banner">
+      <div class="akun-banner-bottom">
+        <div class="akun-banner-bottom-1">
+          <div class="scene">
+            <div class="card-roger">
+              <img loading="lazy" class="roger-metrozero" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/banner/roger-metrozero.webp" alt=" Roger Metrozero">
+            </div>
+          </div>
+        </div>
+
+        <div class="akun-banner-bottom-1">
+          <div class="akun-banner-bottom-1-2">
+            <h3>MOBILE LEGENDS</h3>
+            <p>Moonton</p>
+          </div>
+
+          <div class="akun-banner-bottom-2">
+            <div class="akun-banner-2-1">
+              <img loading="lazy" alt="proses-cepat" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/gif/lightning.gif" >
+              <p>Proses Cepat</p>
+            </div>
+
+            <div class="akun-banner-2-1">
+              <img loading="lazy" alt="proses-cepat" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/gif/contact-support.gif" >
+              <p>Support 24/7</p>
+            </div>
+
+            <div class="akun-banner-2-1">
+              <img loading="lazy" alt="proses-cepat" src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/gif/secure.gif" >
+              <p>Aman & Terpercaya</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+
     <section class="gallery">
       <div class="p-gallery-1">
         <div class="gallery-1">

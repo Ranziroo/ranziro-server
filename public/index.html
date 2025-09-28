@@ -208,19 +208,16 @@
 
   <!-- header -->
   <header>
-    <a href="/mobile-legends">
       <img loading="lazy"
         src="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/ranziro_store.webp"
         alt="ranziro_store" class="logo" />
-    </a>
 
-      <div>
-
+    <div>
     <button class="btn-search">
       <i class="fa-solid fa-magnifying-glass"></i>
 
       <!-- Input Search -->
-      <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
+      <input type="text" id="input-search" class="input-search" placeholder="Cari akun" x-model="tempSearchQuery"
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
     </button>
