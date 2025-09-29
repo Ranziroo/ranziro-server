@@ -688,6 +688,11 @@ table td button.delete:hover {
 
 /* responsive: kecilkan lebar di layar sempit */
 @media (max-width: 480px) {
+
+  #form-akun input,
+#form-akun select {
+  width: 47%;
+}
   .toast { right: .75rem; left: .75rem; min-width: auto; max-width: unset; width: auto; }
   .toast-wrap { right: .5rem; left: .5rem; top: 0.8rem; align-items: stretch; }
 }
@@ -699,7 +704,7 @@ table td button.delete:hover {
 #panel-convert-overlay.show { display: block; }
 
 /* Sidebar active highlight */
-.sidebar-btn.active { background: rgba(255,255,255,0.03); border-left: 3px solid #5ac8fa; }
+.sidebar-btn.active { background: rgba(255,255,255,0.03); border-left: 3px solid #ffee00; }
 
 /* Button style (override jika ada di admin.css) */
 .btn-action { display:inline-block; padding:.45rem .8rem; border-radius:8px; border:0; cursor:pointer; background:#1976d2; color:#fff; text-decoration:none; }
