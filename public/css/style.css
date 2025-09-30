@@ -1504,12 +1504,12 @@ html.is-touch button:focus {
 @media screen and (max-width: 480px) {
 
     .btn-search {
-        width: 75%;
+        width: 65%;
     }
 
     .btn-search:focus,
     .btn-search:focus-within {
-        width: 80%;
+        width: 70%;
     }
 
     .container-list {
