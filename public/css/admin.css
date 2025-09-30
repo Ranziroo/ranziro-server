@@ -36,11 +36,11 @@
 
 @media screen and (max-width: 480px) {
   .btn-search {
-    width: 35%;
+    width: 30%;
   }
   .btn-search:focus,
   .btn-search:focus-within {
-    width: 40%;
+    width: 35%;
   }
   
 }
