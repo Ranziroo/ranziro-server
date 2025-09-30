@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/mobile-legends", "destination": "/index.html" },
+    { "source": "/id-ID", "destination": "/index.html" },
     { "source": "/login", "destination": "/login.html" },
     { "source": "/admin", "destination": "/admin.html" },
     { "source": "/admin/:path*", "destination": "/admin.html" },
