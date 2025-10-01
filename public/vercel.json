@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/id-ID", "destination": "/index.html" },
+    { "source": "/id-id", "destination": "/index.html" },
     { "source": "/login", "destination": "/login.html" },
     { "source": "/admin", "destination": "/admin.html" },
     { "source": "/admin/:path*", "destination": "/admin.html" },

@@ -65,8 +65,7 @@
       <i class="fa-solid fa-magnifying-glass"></i>
 
       <!-- Input Search -->
-      <input type="text" id="input-search" class="input-search" placeholder="Cari data"
-        autocomplete="new-password" />
+      <input type="text" id="input-search" class="input-search" placeholder="Cari data" autocomplete="new-password" />
 
     </button>
 
@@ -112,6 +111,46 @@
         <button type="submit">Tambah Akun</button>
       </form>
 
+    </section>
+
+    <section id="panel-convert" class="panel-section" aria-hidden="true" style="display:none;">
+      <div class="panel-header">
+        <h1>Convert Image</h1>
+        <p class="muted">PNG / JPG → WebP • compress & resize otomatis</p>
+      </div>
+
+      <div class="convert-wrap">
+        <div class="convert-top">
+          <div class="convert-input-area">
+            <label for="convert-input" class="lbl">Pilih gambar (PNG / JPG) — maksimal <strong>10</strong> file</label>
+            <input id="convert-input" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" multiple>
+            <div class="helper">Tip: gunakan file <em>asli</em> berkualitas tinggi untuk hasil terbaik.</div>
+          </div>
+
+          <div class="convert-actions-area">
+            <div class="actions-row">
+              <button id="btn-convert" class="btn primary">Convert to WebP</button>
+              <button id="btn-convert-clear" class="btn ghost">Bersihkan</button>
+            </div>
+            <div id="convert-status" class="status">Belum ada file</div>
+            <div class="progress-row" aria-hidden="true">
+              <div class="progress-bar-bg">
+                <div id="convert-progress" class="progress-bar-fill"></div>
+              </div>
+              <div id="convert-progress-text" class="progress-text">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="convert-results" class="convert-results" aria-live="polite">
+          <!-- card hasil konversi muncul di sini -->
+        </div>
+
+        <p class="hint">
+          Setelah konversi, file .webp akan otomatis diset ke input gambar utama form (<code>#gambar</code>) untuk
+          submit.
+        </p>
+      </div>
     </section>
 
     <section id="panel-index" class="panel-section">
@@ -211,6 +250,11 @@
     <button class="sidebar-btn">
       Form Input Akun
       <i class="fa-solid fa-user-plus"></i>
+    </button>
+
+    <button class="sidebar-btn" data-panel="panel-convert" aria-current="false">
+      <span>Convert Image</span>
+      <i class="fa-solid fa-image"></i>
     </button>
 
     <button class="sidebar-btn">

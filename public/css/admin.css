@@ -35,12 +35,17 @@
 }
 
 @media screen and (max-width: 480px) {
+
+  .btn-menu {
+    margin-right: 0.5rem;
+  }
+
   .btn-search {
-    width: 30%;
+    width: 40%;
   }
   .btn-search:focus,
   .btn-search:focus-within {
-    width: 35%;
+    width: 45%;
   }
   
 }
@@ -709,3 +714,267 @@ table td button.delete:hover {
 /* Button style (override jika ada di admin.css) */
 .btn-action { display:inline-block; padding:.45rem .8rem; border-radius:8px; border:0; cursor:pointer; background:#1976d2; color:#fff; text-decoration:none; }
 
+
+/* =========================
+   Panel Convert — Responsive UI
+   (paste di akhir admin.css)
+   ========================= */
+
+/* fallback warna jika variabel tidak ada */
+:root {
+  --convert-bg: var(--panel-bg, #111);
+  --convert-fg: var(--panel-fg, #e6edf5);
+  --convert-muted: var(--muted, #c1c2c4);
+  --convert-accent: var(--accent, #ffd54a);
+  --convert-accent-2: #ffb74d;
+  --convert-card: #0f0f11;
+  --convert-card-border: rgba(255,255,255,0.04);
+  --convert-radius: 12px;
+}
+
+/* Panel container (override inline display handled by JS/router) */
+#panel-convert {
+  color: var(--convert-fg);
+  padding: 18px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 220px;
+}
+
+/* Panel header */
+#panel-convert .panel-header {
+  display:block;
+  margin-bottom:12px;
+}
+#panel-convert .panel-header h1 {
+  margin:0;
+  font-size:1.4rem;
+  color: var(--convert-fg);
+  letter-spacing:-0.2px;
+}
+#panel-convert .panel-header .muted {
+  margin:3px 0 0 0;
+  color: var(--convert-muted);
+  font-size:0.92rem;
+}
+
+/* Top wrapper card */
+#panel-convert .convert-wrap {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border:1px solid var(--convert-card-border);
+  padding:16px;
+  border-radius: var(--convert-radius);
+  max-width: 1200px;
+  width:100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* layout: input + actions */
+#panel-convert .convert-top {
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:14px;
+  align-items:start;
+}
+
+/* left: file input area */
+#panel-convert .convert-input-area .lbl {
+  display:block;
+  font-weight:700;
+  color:var(--convert-fg);
+  margin-bottom:8px;
+}
+#panel-convert input#convert-input {
+  width:100%;
+  padding:10px 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.04);
+  border-radius:8px;
+  color:var(--convert-fg);
+  cursor:pointer;
+  outline:none;
+  font-size:0.95rem;
+}
+#panel-convert .helper {
+  color:var(--convert-muted);
+  font-size:0.86rem;
+  margin-top:8px;
+}
+
+/* right: actions area */
+#panel-convert .convert-actions-area {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:flex-end;
+}
+#panel-convert .actions-row {
+  display:flex;
+  gap:8px;
+  width:100%;
+  justify-content:flex-end;
+}
+#panel-convert .btn {
+  padding:.55rem .9rem;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  border: none;
+}
+#panel-convert .btn.ghost {
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.05);
+  color:var(--convert-fg);
+}
+#panel-convert .btn.primary {
+  background: linear-gradient(90deg,var(--convert-accent),var(--convert-accent-2));
+  color:#111;
+  box-shadow: 0 8px 30px rgba(255,200,60,0.06);
+}
+
+/* status / progress */
+#panel-convert .status {
+  color:var(--convert-muted);
+  font-size:0.9rem;
+  text-align:right;
+  min-height:22px;
+}
+#panel-convert .progress-row {
+  margin-top:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+}
+#panel-convert .progress-bar-bg {
+  flex:1;
+  height:9px;
+  background: rgba(255,255,255,0.03);
+  border-radius:9px;
+  overflow:hidden;
+}
+#panel-convert .progress-bar-fill {
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg,var(--convert-accent),var(--convert-accent-2));
+  transition: width 280ms ease;
+}
+#panel-convert .progress-text {
+  min-width:44px;
+  color:var(--convert-muted);
+  font-size:0.85rem;
+  text-align:right;
+}
+
+/* results grid */
+#panel-convert #convert-results {
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:12px;
+}
+
+/* result card */
+#panel-convert .convert-card {
+  background: var(--convert-card);
+  border: 1px solid var(--convert-card-border);
+  padding:10px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  transition: transform .16s ease, box-shadow .16s ease;
+  will-change: transform;
+}
+#panel-convert .convert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+}
+#panel-convert .convert-card img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:8px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+#panel-convert .convert-meta {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+#panel-convert .convert-meta .name {
+  font-weight:700;
+  color:var(--convert-fg);
+  font-size:0.95rem;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+#panel-convert .convert-meta .sizes {
+  color:var(--convert-muted);
+  font-size:0.82rem;
+}
+
+/* actions inside card */
+#panel-convert .convert-actions {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+#panel-convert .convert-actions a.download {
+  padding:.42rem .6rem;
+  border-radius:8px;
+  font-weight:800;
+  text-decoration:none;
+  background:var(--convert-accent);
+  color:#111;
+}
+#panel-convert .convert-actions button.set-form {
+  padding:.36rem .6rem;
+  border-radius:8px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--convert-fg);
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* hint text */
+#panel-convert .hint {
+  margin-top:12px;
+  color:var(--convert-muted);
+  font-size:0.9rem;
+}
+
+/* small viewports */
+@media (max-width: 980px) {
+  #panel-convert .convert-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 720px) {
+  #panel-convert .convert-top {
+    grid-template-columns: 1fr;
+  }
+  #panel-convert .convert-actions-area {
+    align-items:stretch;
+  }
+  #panel-convert .actions-row {
+    justify-content:flex-start;
+  }
+  #panel-convert .convert-card img { height:120px; }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  #panel-convert .convert-card img { height:110px; }
+  #panel-convert .convert-meta .name { font-size:0.92rem; }
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  #panel-convert .convert-card, #panel-convert .progress-bar-fill { transition: none !important; transform: none !important; }
+}
