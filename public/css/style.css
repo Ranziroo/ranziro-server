@@ -1563,8 +1563,8 @@ html.is-touch button:focus {
     }
 
     .coppyright {
-        padding: 2rem 5%;
-        gap: 2rem;
+        padding: 1.5rem 2.5%;
+        gap: 1.5rem;
     }
 
     .gallery {
