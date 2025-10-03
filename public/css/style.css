@@ -1891,6 +1891,21 @@ html.is-touch button:focus {
     }
 }
 
+@media screen and (min-width: 1500px) and (max-width: 2248px) {
+    .container-list-3 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .card {
+        max-height: 14rem;
+        width: auto;
+    }
+
+    .banner-slider .slide img {
+        height: 470px;
+    }
+}
+
 /* Falling leaves background */
 #bg-leaves {
     position: fixed;
