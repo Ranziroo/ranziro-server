@@ -4,24 +4,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Jangan index halaman admin -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Basic -->
+  <title>Admin Panel | Ranziro Store</title>
+  <meta name="description" content="Dashboard admin Ranziro Store — manajemen akun, gambar, dan data produk." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ranziro.store/admin" />
+
+  <!-- Open Graph (point to public domain) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ranziro Store" />
-  <meta property="og:description" content="Jual beli akun Mobile Legends. Cek koleksi dan harga terbaik." />
+  <meta property="og:title" content="Ranziro Store — Admin Panel" />
+  <meta property="og:description" content="Dashboard admin Ranziro Store — manajemen akun, gambar, dan data produk." />
   <meta property="og:image"
     content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
-  <meta property="og:url" content="https://ranziro-server-production.up.railway.app" />
+  <meta property="og:image:alt" content="Logo Ranziro Store" />
+  <meta property="og:url" content="https://ranziro.store/admin" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ranziro Store — Admin Panel" />
+  <meta name="twitter:description" content="Dashboard admin Ranziro Store — manajemen akun, gambar, dan data produk." />
   <meta name="twitter:image"
     content="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
+
+  <!-- Legacy image src -->
   <link rel="image_src"
     href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
 
+  <!-- Favicons (we use .webp from Supabase; PNG/ICO recommended as fallback) -->
   <link rel="icon"
     href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp"
-    type="image/webp" width="32" height="32">
+    type="image/webp" sizes="32x32">
+  <!-- fallback to root favicon if you provide one on your domain -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp" />
 
-  <title>Admin Panel | Ranziro Store</title>
+  <!-- Web App Manifest (put /site.webmanifest in public/) -->
+  <link rel="manifest" href="/site.webmanifest">
 
+  <!-- Structured data for Organization (ensure same preferred domain in url) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "url": "https://ranziro.store",
+    "name": "Ranziro Store",
+    "logo": "https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/logo/meta_ranziro.webp"
+  }
+  </script>
+
+  <!-- Touch detection -->
   <script>
     (function () {
       if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
@@ -30,7 +67,7 @@
     })();
   </script>
 
-  <!-- link css -->
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" href="assets/loader.css">
@@ -38,14 +75,12 @@
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/b0ce53bf51.js" crossorigin="anonymous"></script>
 
-  <!-- Link Google Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chau+Philomene+One:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap"
     rel="stylesheet" />
-
-
 </head>
 
 <body>
