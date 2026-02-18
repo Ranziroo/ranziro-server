@@ -2,7 +2,15 @@
 .env
 .vscode
 .venv
+
+node_modules
+middleware
 server.js
+package-lock.json
+package.json
+convert-img.js
+readme.md
+
 public/img-webp
 public/img-backup
 public/logo
@@ -19,7 +27,3 @@ public/js/components/communityBtn.js
 public/js/components/lastYear.js
 public/js/components/starsIndex.js
 public/js/components/leaves.js
-node_modules
-convert-img.js
-readme.md
-middleware
