@@ -265,7 +265,7 @@ header div {
     content: "";
     position: absolute;
     top: -1rem;
-    left: 0;
+    left: -1.5rem;
     width: 1rem;
     height: 3rem;
     background: #ffffff;
@@ -693,7 +693,7 @@ main {
     content: "";
     position: absolute;
     top: -1rem;
-    left: 0;
+    left: -1.5rem;
     width: 1.5rem;
     height: 4rem;
     background: #ffffff;
