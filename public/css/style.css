@@ -2086,7 +2086,7 @@ html.is-touch button:focus {
 }
 
 .slider-thumbs .thumb-btn.active {
-    outline: 2px solid #fbff00;
+    outline: 2px solid #6366f1;
     transform: scale(1.03);
 }
 
