@@ -148,6 +148,13 @@ header div {
     font-weight: 400;
 }
 
+.sidebar-links:hover p {
+    /* Gradient Indigo → Purple */
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 /* search button (tetap disini jika dipakai) */
 .btn-search {
     position: relative;
@@ -374,11 +381,16 @@ header div {
 }
 
 .container-search-2 p {
-    color: #fbff00;
     font-size: 0.78rem;
     margin: 0;
     margin-top: 0.2rem;
+
+    /* Gradient Indigo → Purple */
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 
 /* small typing loader */
 .typing-loader {
@@ -1219,9 +1231,13 @@ main {
 }
 
 #account-price {
-    color: #fbff00;
     font-weight: 500;
     font-size: 0.8rem;
+
+    /* Gradient Indigo → Purple */
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .not-found-container {
