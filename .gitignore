@@ -5,6 +5,7 @@
 
 node_modules
 middleware
+uploads
 server.js
 package-lock.json
 package.json
