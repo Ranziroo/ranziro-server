@@ -218,7 +218,7 @@ header div {
     transform: scale(0.5);
     visibility: hidden;
     transform-origin: top;
-    transition: transform 0.7s cubic-bezier(.2, .9, .2, 1);
+    transition: all 0.7s cubic-bezier(.2, .9, .2, 1);
 }
 
 .input-search {
@@ -1361,91 +1361,91 @@ main {
     color: rgba(212, 212, 212, 0.521);
 }
 
-    footer {
-        position: relative;
-        width: 100%;
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-    }
+footer {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
 
-    footer svg {
-        position: relative;
-        width: 100%;
-        top: 1px;
-    }
+footer svg {
+    position: relative;
+    width: 100%;
+    top: 1px;
+}
 
-    .footer-2 {
-        position: relative;
-        width: 100%;
-        height: max-content;
-        padding: 2rem 5% 0 5%;
-        background: #242424;
-        display: flex;
-        gap: 5rem;
-        flex-wrap: wrap;
-    }
+.footer-2 {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    padding: 2rem 5% 0 5%;
+    background: #242424;
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
 
-    .footer-card {
-        position: relative;
-        width: max-content;
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-    }
+.footer-card {
+    position: relative;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
 
-    .footer-logo {
-        position: relative;
-        width: 14rem;
-        height: 5.5rem;
-        margin-bottom: 1rem;
-    }
+.footer-logo {
+    position: relative;
+    width: 14rem;
+    height: 5.5rem;
+    margin-bottom: 1rem;
+}
 
-    .footer-hr {
-        position: relative;
-        width: 2.5rem;
-        height: 3px;
+.footer-hr {
+    position: relative;
+    width: 2.5rem;
+    height: 3px;
     background: linear-gradient(90deg, #6366f1, #a855f7);
-        border-radius: 3px;
-        margin-bottom: 1rem;
-    }
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
 
-    .footer-deskripsi {
-        position: relative;
-        width: 24rem;
-        font-weight: 400;
-        font-family: 'poppins' sans-serif;
-        color: #ffffff;
-        font-size: 0.9rem;
-    }
+.footer-deskripsi {
+    position: relative;
+    width: 24rem;
+    font-weight: 400;
+    font-family: 'poppins' sans-serif;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
 
-    .footer-title {
-        position: relative;
-        font-weight: bold;
-        font-family: 'poppins' sans-serif;
-        color: #ffffff;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        font-size: 1rem;
-        margin-bottom: 0.2rem;
-    }
+.footer-title {
+    position: relative;
+    font-weight: bold;
+    font-family: 'poppins' sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
 
-    .footer-list {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-    }
+.footer-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
 
-    .footer-links {
-        position: relative;
-        font-weight: 300;
-        font-family: 'poppins' sans-serif;
-        color: #ffffff;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        transition: all .3s ease;
-    }
+.footer-links {
+    position: relative;
+    font-weight: 300;
+    font-family: 'poppins' sans-serif;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    transition: all .3s ease;
+}
 
 .footer-links:hover {
     background: linear-gradient(90deg, #6366f1, #a855f7);
@@ -1453,28 +1453,28 @@ main {
     -webkit-text-fill-color: transparent;
 }
 
-    .footer-sm {
-        width: 40px;
-        height: 40px;
-        font-size:1rem; 
-        padding:5px; 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #00000052;
-        border-radius:50%; 
-        transition: background-color .3s ease;
-    }
+.footer-sm {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00000052;
+    border-radius: 50%;
+    transition: background-color .3s ease;
+}
 
-    .footer-sm:hover {
-        transform: scale(1.1);  
-    }
+.footer-sm:hover {
+    transform: scale(1.1);
+}
 
-    .footer-sm i {
-        font-size: normal;
-        color: white;
-        transition: all .3s ease;
-    }
+.footer-sm i {
+    font-size: normal;
+    color: white;
+    transition: all .3s ease;
+}
 
 .footer-sm:hover i {
     transform: rotate(360deg);
@@ -1485,20 +1485,20 @@ main {
     -webkit-text-fill-color: transparent;
 }
 
-    .coppyright {
-        position: relative;
-        width: 100%;
-        height: 3rem;
-        padding: 2rem 5%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #242424;
-        color: #ffffff;
-        font-weight: 300;
-        font-family: 'poppins' sans-serif;
-        font-size: 0.8rem;
-    }
+.coppyright {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    padding: 2rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #242424;
+    color: #ffffff;
+    font-weight: 300;
+    font-family: 'poppins' sans-serif;
+    font-size: 0.8rem;
+}
 
 .container-load-more {
     text-align: center;
@@ -1585,22 +1585,39 @@ main {
 .container-unggul-child:nth-child(1) i {
     animation-delay: 0s;
 }
+
 .container-unggul-child:nth-child(2) i {
     animation-delay: 0.5s;
 }
+
 .container-unggul-child:nth-child(3) i {
     animation-delay: 1s;
 }
+
 .container-unggul-child:nth-child(4) i {
     animation-delay: 1.5s;
 }
 
 @keyframes scaleShake {
-    0%   { transform: scale(1) rotate(0deg); }
-    25%  { transform: scale(1.1) rotate(-4deg); }
-    50%  { transform: scale(1.2) rotate(4deg); }
-    75%  { transform: scale(1.1) rotate(-3deg); }
-    100% { transform: scale(1) rotate(0deg); }
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(-4deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(4deg);
+    }
+
+    75% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 /* 1) Hilangkan overlay biru saat tap pada perangkat sentuh (iOS/Android) */

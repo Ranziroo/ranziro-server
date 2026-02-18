@@ -154,33 +154,30 @@
     <!-- btn kembali -->
     <a href="/id-id" class="btn-kembali"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
     <h2>Login</h2>
-<form id="login-form" autocomplete="off">
-  <!-- Decoy inputs: biarkan di luar viewport sehingga password manager
+    <form id="login-form" autocomplete="off">
+      <!-- Decoy inputs: biarkan di luar viewport sehingga password manager
        cenderung mengisi ini, bukan input yang terlihat. -->
-  <input type="text" name="__fake_username" id="__fake_username"
-         autocomplete="username"
-         style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;border:0;padding:0;margin:0;">
-  <input type="password" name="__fake_password" id="__fake_password"
-         autocomplete="current-password"
-         style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;border:0;padding:0;margin:0;">
+      <input type="text" name="__fake_username" id="__fake_username" autocomplete="username"
+        style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;border:0;padding:0;margin:0;">
+      <input type="password" name="__fake_password" id="__fake_password" autocomplete="current-password"
+        style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;border:0;padding:0;margin:0;">
 
-  <label for="username">Username</label>
-  <!-- tetap pakai name="username" supaya server kompatibel -->
-  <input name="username" id="username" placeholder="Username" required autocomplete="off" />
+      <label for="username">Username</label>
+      <!-- tetap pakai name="username" supaya server kompatibel -->
+      <input name="username" id="username" placeholder="Username" required autocomplete="off" />
 
-  <label for="password">Password</label>
-  <div class="input-with-icon">
-    <input type="password" name="password" id="password" placeholder="Password"
-           required autocomplete="off" />
-    <button type="button" class="toggle-password" aria-pressed="false" aria-label="Tampilkan password">
-      <i class="fa-solid fa-eye" aria-hidden="true"></i>
-    </button>
-  </div>
+      <label for="password">Password</label>
+      <div class="input-with-icon">
+        <input type="password" name="password" id="password" placeholder="Password" required autocomplete="off" />
+        <button type="button" class="toggle-password" aria-pressed="false" aria-label="Tampilkan password">
+          <i class="fa-solid fa-eye" aria-hidden="true"></i>
+        </button>
+      </div>
 
-  <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:10px">
-    <button type="submit">Login</button>
-  </div>
-</form>
+      <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:10px">
+        <button type="submit">Login</button>
+      </div>
+    </form>
   </div>
 
   <script src="js/logwwne345o.min.js"></script>
