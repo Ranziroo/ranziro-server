@@ -216,6 +216,7 @@ header div {
     display: flex;
     flex-direction: column;
     transform: scale(0.5);
+    visibility: hidden;
     transform-origin: top;
     transition: transform 0.7s cubic-bezier(.2, .9, .2, 1);
 }
