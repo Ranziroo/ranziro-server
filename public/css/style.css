@@ -809,9 +809,8 @@ main {
 
 .loader {
     position: relative;
-    background: url('https://lzycriwqrcqbiijtiipa.supabase.co/storage/v1/object/public/gambar/assets/akun_1771481375911_edc8g7gqyn9.webp');
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     animation: loadingBallPulse 1s ease infinite;
 }
 
