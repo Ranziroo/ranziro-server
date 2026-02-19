@@ -28,7 +28,7 @@
 
 .loader-ripple div {
   position: absolute;
-  border: 4px solid #fff;
+  border: 4px solid #6366f1;
   opacity: 1;
   border-radius: 50%;
   animation: ripple 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
