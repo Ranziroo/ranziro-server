@@ -811,7 +811,7 @@ main {
     position: relative;
     width: 3rem;
     height: 3rem;
-    background: linear-gradient(to bottom right, #6366f1, #a855f7);
+    background: #ffffff;
     animation: loadingBallPulse 1s ease infinite;
 }
 
