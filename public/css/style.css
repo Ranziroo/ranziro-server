@@ -809,8 +809,8 @@ main {
 
 .loader {
     position: relative;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     animation: loadingBallPulse 1s ease infinite;
 }
 
