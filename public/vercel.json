@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/id-id", "destination": "/index.html" },
-    { "source": "/login", "destination": "/login.html" },
+    { "source": "/login-by-admin", "destination": "/login.html" },
     { "source": "/admin", "destination": "/admin.html" },
     { "source": "/admin/:path*", "destination": "/admin.html" },
     { "source": "/akun", "destination": "/akun_ml.html" }
