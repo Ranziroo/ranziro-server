@@ -811,7 +811,6 @@ main {
     position: relative;
     width: 2rem;
     height: 2rem;
-    background: rgb(255, 255, 255);
     animation: loadingBallPulse 1s ease infinite;
 }
 
